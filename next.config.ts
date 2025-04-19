@@ -9,8 +9,8 @@ const nextConfig: NextConfig = {
   // For example, if your repo URL is https://github.com/8have5h/bhavesh-portfolio
   // basePath: '/bhavesh-portfolio',
   // assetPrefix: '/bhavesh-portfolio/',
-  basePath: '/8have5h.github.io',
-  assetPrefix: '/8have5h.github.io/',
+  // basePath: '/8have5h.github.io',
+  // assetPrefix: '/8have5h.github.io/',
 
   // If your repo IS 8have5h.github.io, comment out or remove basePath and assetPrefix.
 
