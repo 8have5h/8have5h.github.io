@@ -2,10 +2,10 @@
 import type { Config } from "tailwindcss"
 
 const config = {
-  darkMode: ["class"],
+  darkMode: "class",
   content: [
     // Adjust if your structure is different, but these cover common Next.js patterns
-    './pages/**/*.{ts,tsx}', // Keep just in case
+    // './pages/**/*.{ts,tsx}', // Keep just in case
     './components/**/*.{ts,tsx}', // Keep just in case
     './app/**/*.{ts,tsx}', // Most relevant for App Router
     './src/**/*.{ts,tsx}', // Covers components inside src
