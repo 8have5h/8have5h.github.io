@@ -229,7 +229,7 @@ function BlogTabContent() {
 
   return (
     <div>
-      <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+      <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
         Blog & Thoughts
       </h2>
 
@@ -242,14 +242,15 @@ function BlogTabContent() {
               placeholder="Search posts by title, content, or tags..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+              className="w-full px-5 py-3.5 bg-white border-2 border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all shadow-sm"
             />
           </div>
 
           {/* Blog Posts Grid */}
           {filteredPosts.length === 0 ? (
-            <div className="text-center py-12 bg-gray-800/30 border border-gray-700 rounded-lg">
-              <p className="text-gray-400 text-lg mb-2">No posts found</p>
+            <div className="text-center py-16 bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl shadow-sm">
+              <BookOpen className="w-16 h-16 text-gray-300 mx-auto mb-4" />
+              <p className="text-gray-700 text-lg font-semibold mb-2">No posts found</p>
               <p className="text-gray-500 text-sm">Try a different search term or check back later for new content!</p>
             </div>
           ) : (
@@ -258,19 +259,19 @@ function BlogTabContent() {
                 <div
                   key={post.id}
                   onClick={() => loadPost(post)}
-                  className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 hover:border-blue-500 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 group"
+                  className="bg-white border-2 border-gray-200 rounded-2xl p-6 hover:border-blue-500 transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-2 group"
                 >
                   <div className="flex justify-between items-start mb-3">
-                    <h3 className="text-xl font-bold text-blue-300 group-hover:text-blue-200 transition-colors">
+                    <h3 className="text-xl font-bold text-gray-900 group-hover:text-blue-600 transition-colors">
                       {post.title}
                     </h3>
-                    <BookOpen className="w-5 h-5 text-gray-500 group-hover:text-blue-400 transition-colors" />
+                    <BookOpen className="w-5 h-5 text-gray-400 group-hover:text-blue-500 transition-colors flex-shrink-0 ml-2" />
                   </div>
-                  <p className="text-sm text-gray-500 mb-3">{post.date}</p>
-                  <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                  <p className="text-sm text-gray-500 mb-3 font-medium">{post.date}</p>
+                  <p className="text-gray-600 mb-4 line-clamp-3 leading-relaxed">{post.excerpt}</p>
                   <div className="flex flex-wrap gap-2">
                     {post.tags.map((tag, idx) => (
-                      <Badge key={idx} variant="outline" className="bg-blue-900/30 text-blue-300 border-blue-500 text-xs">
+                      <Badge key={idx} variant="outline" className="bg-blue-50 text-blue-700 border-blue-300 text-xs">
                         {tag}
                       </Badge>
                     ))}
@@ -280,8 +281,8 @@ function BlogTabContent() {
             </div>
           )}
 
-          <div className="mt-8 text-center">
-            <p className="text-gray-500 text-sm">
+          <div className="mt-10 text-center">
+            <p className="text-gray-600 text-sm font-medium">
               More posts coming soon! Stay tuned for articles on AI, ML, and my research journey.
             </p>
           </div>
@@ -294,7 +295,7 @@ function BlogTabContent() {
               setSelectedPost(null);
               setPostContent('');
             }}
-            className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg text-gray-300 transition-colors"
+            className="mb-6 inline-flex items-center gap-2 px-5 py-2.5 bg-white hover:bg-gray-50 border-2 border-gray-200 rounded-xl text-gray-700 font-medium transition-all shadow-sm hover:shadow-md"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
@@ -303,17 +304,17 @@ function BlogTabContent() {
           </button>
 
           {/* Post Content */}
-          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 md:p-8">
-            <div className="mb-6">
-              <h1 className="text-3xl md:text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+          <div className="bg-white border-2 border-gray-200 rounded-2xl p-8 md:p-10 shadow-lg">
+            <div className="mb-8">
+              <h1 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent leading-tight">
                 {selectedPost.title}
               </h1>
-              <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
-                <span>{selectedPost.date}</span>
-                <span>•</span>
-                <div className="flex gap-2">
+              <div className="flex flex-wrap items-center gap-3 text-sm text-gray-500 mb-4 pb-6 border-b border-gray-200">
+                <span className="font-medium">{selectedPost.date}</span>
+                <span className="text-gray-400">•</span>
+                <div className="flex flex-wrap gap-2">
                   {selectedPost.tags.map((tag, idx) => (
-                    <Badge key={idx} variant="outline" className="bg-purple-900/30 text-purple-300 border-purple-500 text-xs">
+                    <Badge key={idx} variant="outline" className="bg-purple-50 text-purple-700 border-purple-300 text-xs">
                       {tag}
                     </Badge>
                   ))}
@@ -321,22 +322,30 @@ function BlogTabContent() {
               </div>
             </div>
 
-            {isLoading && <p className="text-center text-gray-400 py-8">Loading post...</p>}
+            {isLoading && (
+              <div className="text-center py-12">
+                <div className="inline-block w-8 h-8 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mb-4"></div>
+                <p className="text-gray-600">Loading post...</p>
+              </div>
+            )}
             {error && (
-              <p className="text-center text-red-400 px-4 py-3 bg-red-900/20 border border-red-500/30 rounded">
+              <p className="text-center text-red-700 px-4 py-3 bg-red-50 border border-red-200 rounded-lg">
                 {error}
               </p>
             )}
             {!isLoading && !error && postContent && (
-              <article className="prose prose-invert max-w-none lg:prose-lg
-                                prose-headings:text-transparent prose-headings:bg-clip-text prose-headings:bg-gradient-to-r prose-headings:from-blue-400 prose-headings:to-purple-500
-                                prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-a:underline
-                                prose-strong:text-yellow-300
-                                prose-code:text-yellow-300 prose-code:bg-gray-700 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-                                prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-700 prose-pre:rounded-md prose-pre:p-4
-                                prose-blockquote:border-l-purple-500 prose-blockquote:text-gray-400
-                                prose-li:marker:text-purple-400
-                                prose-img:rounded-lg prose-img:shadow-lg">
+              <article className="prose prose-gray max-w-none lg:prose-lg
+                                prose-headings:text-gray-900 prose-headings:font-bold
+                                prose-h1:text-3xl prose-h2:text-2xl prose-h3:text-xl
+                                prose-a:text-blue-600 hover:prose-a:text-blue-700 prose-a:underline prose-a:font-medium
+                                prose-strong:text-gray-900 prose-strong:font-bold
+                                prose-code:text-purple-700 prose-code:bg-purple-50 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:font-medium prose-code:text-sm prose-code:before:content-none prose-code:after:content-none
+                                prose-pre:bg-gray-900 prose-pre:border-2 prose-pre:border-gray-700 prose-pre:rounded-xl prose-pre:p-4 prose-pre:shadow-lg
+                                prose-blockquote:border-l-4 prose-blockquote:border-blue-500 prose-blockquote:bg-blue-50 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg prose-blockquote:text-gray-700
+                                prose-li:marker:text-blue-500 prose-li:text-gray-700
+                                prose-ul:my-4 prose-ol:my-4
+                                prose-p:text-gray-700 prose-p:leading-relaxed
+                                prose-img:rounded-xl prose-img:shadow-xl prose-img:border-2 prose-img:border-gray-200">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{postContent}</ReactMarkdown>
               </article>
             )}
@@ -446,9 +455,10 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
         </a>
       </header>
 
-      <main id="main-content" className="container mx-auto px-4 sm:px-6 py-20 bg-gray-50">
+      <main id="main-content" className="container mx-auto px-4 sm:px-6 py-20 bg-gradient-to-b from-gray-50 to-white">
         <Tabs defaultValue="about" className="mb-16">
-           <TabsList className="grid w-full max-w-4xl mx-auto h-14 grid-cols-3 sm:grid-cols-5 mb-16 bg-white p-1.5 rounded-2xl shadow-lg border border-gray-200">
+           <div className="sticky top-4 z-40 mb-16">
+           <TabsList className="grid w-full max-w-4xl mx-auto h-14 grid-cols-3 sm:grid-cols-5 bg-white/90 backdrop-blur-lg p-1.5 rounded-2xl shadow-xl border border-gray-200">
              <TabsTrigger value="about" aria-label="About Me" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <User className="w-4 h-4 sm:w-5 sm:h-5" /> About
              </TabsTrigger>
@@ -465,6 +475,7 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" /> Blog
              </TabsTrigger>
            </TabsList>
+           </div>
 
           {/* About Tab Content */}
          <TabsContent value="about">
@@ -490,17 +501,17 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                        <a href="mailto:bhavesh.gurnani2003@gmail.com" className="inline-flex items-center group">
-                         <Badge variant="outline" className="bg-blue-900/30 border-blue-500 text-blue-300 group-hover:bg-blue-800/50 transition-colors">
+                         <Badge variant="outline" className="bg-blue-50 border-blue-300 text-blue-700 group-hover:bg-blue-100 transition-colors">
                            <Mail className="w-3 h-3 mr-1" /> Email Me
                          </Badge>
                        </a>
                        <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer" className="inline-flex items-center group">
-                         <Badge variant="outline" className="bg-green-900/30 border-green-500 text-green-300 group-hover:bg-green-800/50 transition-colors">
+                         <Badge variant="outline" className="bg-emerald-50 border-emerald-300 text-emerald-700 group-hover:bg-emerald-100 transition-colors">
                            <Github className="w-3 h-3 mr-1" /> GitHub
                          </Badge>
                        </a>
                        <a href="https://www.linkedin.com/in/bhavesh-gurnani-410a68217" target="_blank" rel="noopener noreferrer" className="inline-flex items-center group">
-                         <Badge variant="outline" className="bg-purple-900/30 border-purple-500 text-purple-300 group-hover:bg-purple-800/50 transition-colors">
+                         <Badge variant="outline" className="bg-purple-50 border-purple-300 text-purple-700 group-hover:bg-purple-100 transition-colors">
                            <Linkedin className="w-3 h-3 mr-1" /> LinkedIn
                          </Badge>
                        </a>
@@ -559,29 +570,29 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                     <BrainCircuit className="mr-3 text-purple-600" /> Research Interests
                   </h3>
                   <div className="space-y-4">
-                     <div className="p-3 bg-purple-900/20 border-l-4 border-purple-500 rounded">
-                      <h4 className="font-semibold text-purple-300">Machine Learning & Deep Learning</h4>
-                      <p className="text-sm text-gray-300">Neural networks, optimization, RL, generative models</p>
+                     <div className="p-4 bg-gradient-to-r from-purple-50 to-purple-100/50 border-l-4 border-purple-500 rounded-lg hover:shadow-md transition-all duration-200">
+                      <h4 className="font-semibold text-purple-800 mb-1">Machine Learning & Deep Learning</h4>
+                      <p className="text-sm text-gray-700">Neural networks, optimization, RL, generative models</p>
                     </div>
-                     <div className="p-3 bg-indigo-900/20 border-l-4 border-indigo-500 rounded">
-                      <h4 className="font-semibold text-indigo-300">Mechanistic Interpretability & AI Safety</h4>
-                      <p className="text-sm text-gray-300">Understanding NNs, alignment, robustness</p>
+                     <div className="p-4 bg-gradient-to-r from-indigo-50 to-indigo-100/50 border-l-4 border-indigo-500 rounded-lg hover:shadow-md transition-all duration-200">
+                      <h4 className="font-semibold text-indigo-800 mb-1">Mechanistic Interpretability & AI Safety</h4>
+                      <p className="text-sm text-gray-700">Understanding NNs, alignment, robustness</p>
                     </div>
-                    <div className="p-3 bg-blue-900/20 border-l-4 border-blue-500 rounded">
-                      <h4 className="font-semibold text-blue-300">Natural Language Processing</h4>
-                      <p className="text-sm text-gray-300">LLMs, generation, summarization, QA</p>
+                    <div className="p-4 bg-gradient-to-r from-blue-50 to-blue-100/50 border-l-4 border-blue-500 rounded-lg hover:shadow-md transition-all duration-200">
+                      <h4 className="font-semibold text-blue-800 mb-1">Natural Language Processing</h4>
+                      <p className="text-sm text-gray-700">LLMs, generation, summarization, QA</p>
                     </div>
-                    <div className="p-3 bg-green-900/20 border-l-4 border-green-500 rounded">
-                      <h4 className="font-semibold text-green-300">Computer Vision</h4>
-                      <p className="text-sm text-gray-300">Object-centric learning, diffusion models</p>
+                    <div className="p-4 bg-gradient-to-r from-emerald-50 to-emerald-100/50 border-l-4 border-emerald-500 rounded-lg hover:shadow-md transition-all duration-200">
+                      <h4 className="font-semibold text-emerald-800 mb-1">Computer Vision</h4>
+                      <p className="text-sm text-gray-700">Object-centric learning, diffusion models</p>
                     </div>
-                    <div className="p-3 bg-yellow-900/20 border-l-4 border-yellow-500 rounded">
-                      <h4 className="font-semibold text-yellow-300">Abstract Reasoning & AGI</h4>
-                       <p className="text-sm text-gray-300">ARC challenge, program synthesis, cognitive architectures</p>
+                    <div className="p-4 bg-gradient-to-r from-amber-50 to-amber-100/50 border-l-4 border-amber-500 rounded-lg hover:shadow-md transition-all duration-200">
+                      <h4 className="font-semibold text-amber-800 mb-1">Abstract Reasoning & AGI</h4>
+                       <p className="text-sm text-gray-700">ARC challenge, program synthesis, cognitive architectures</p>
                     </div>
-                     <div className="p-3 bg-red-900/20 border-l-4 border-red-500 rounded">
-                       <h4 className="font-semibold text-red-300">Quantitative Finance & HFT</h4>
-                       <p className="text-sm text-gray-300">Algorithmic trading strategies, market microstructure</p>
+                     <div className="p-4 bg-gradient-to-r from-rose-50 to-rose-100/50 border-l-4 border-rose-500 rounded-lg hover:shadow-md transition-all duration-200">
+                       <h4 className="font-semibold text-rose-800 mb-1">Quantitative Finance & HFT</h4>
+                       <p className="text-sm text-gray-700">Algorithmic trading strategies, market microstructure</p>
                     </div>
                   </div>
                 </div>
@@ -590,8 +601,8 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
           </TabsContent>
 
           {/* Projects Tab Content */}
-          <TabsContent value="projects" className="space-y-12">
-            <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+          <TabsContent value="projects" className="space-y-12 max-w-6xl mx-auto">
+            <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
               Things I&apos;ve Built & Explored {/* Corrected: &apos; -> &apos; */}
             </h2>
 
@@ -743,154 +754,154 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
 
           {/* Experience Tab Content */}
           <TabsContent value="experience">
-             <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+             <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
               My Journey & Experience
             </h2>
-            <div className="space-y-12">
-              <div className="relative border-l-2 border-gray-700 pl-8 ml-4 space-y-12">
+            <div className="space-y-12 max-w-5xl mx-auto">
+              <div className="relative border-l-2 border-gray-300 pl-8 ml-4 space-y-12">
                  {/* Upcoming Internship */}
                  <div className="relative">
-                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-yellow-500 border-4 border-gray-900 animate-pulse"></div>
+                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-amber-500 border-4 border-white shadow-lg animate-pulse"></div>
                    <div className="mb-4 flex items-center gap-2">
-                    <span className="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">May 2025 – July 2025 (Upcoming)</span>
-                    <CalendarClock className="w-4 h-4 text-yellow-400"/>
+                    <span className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2025 – July 2025 (Upcoming)</span>
+                    <CalendarClock className="w-4 h-4 text-amber-600"/>
                   </div>
-                   <h3 className="text-2xl font-bold mb-1">Quantitative Researcher Intern</h3>
-                   <p className="text-lg text-gray-400 mb-4">Ebullient Securities, Gurugram</p>
-                   <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                     <p className="mb-4 text-gray-300">
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Quantitative Researcher Intern</h3>
+                   <p className="text-lg text-gray-600 mb-4 font-medium">Ebullient Securities, Gurugram</p>
+                   <div className="bg-gradient-to-br from-amber-50 to-white border border-amber-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                     <p className="mb-4 text-gray-700 leading-relaxed">
                        Upcoming quantitative research internship focusing on algorithmic trading and alpha generation for equity markets.
                      </p>
-                     <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm mb-4">
+                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm mb-4">
                        <li>Building and back-testing alpha signals for short-term equity directionality from equities and futures</li>
                        <li>Automating alpha-generation pipeline using LLMs with custom evaluation loops for iterative refinement</li>
                        <li>Developing quantitative strategies for high-frequency trading</li>
                      </ul>
                      <div className="flex flex-wrap gap-2 mt-6">
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Quantitative Finance</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Alpha Generation</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">LLMs</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Python</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Trading Strategies</Badge>
+                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Quantitative Finance</Badge>
+                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Alpha Generation</Badge>
+                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">LLMs</Badge>
+                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Python</Badge>
+                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Trading Strategies</Badge>
                      </div>
                    </div>
                  </div>
                  {/* Past Experiences */}
                 <div className="relative">
-                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-blue-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-blue-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">May 2024 - July 2024</span>
+                    <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2024 - July 2024</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Software/Research Engineer Intern</h3>
-                  <p className="text-lg text-gray-400 mb-4">Compiler AI Labs Private Limited, New Delhi</p>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <p className="mb-4 text-gray-300">
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Software/Research Engineer Intern</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">Compiler AI Labs Private Limited, New Delhi</p>
+                  <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p className="mb-4 text-gray-700 leading-relaxed">
                       Worked on implementing formal verification techniques for the Clang compiler, focusing on MISRA C static analysis rules and code equivalence checking.
                     </p>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                       <li>Implemented MISRA C static analysis rules within Clang compiler across Preprocessor, AST, and LLVM IR stages</li>
                       <li>Enhanced Equivalence Checker tool for formal verification of compiled executable code against C source code</li>
                       <li>Collaborated with the team, analyzing the Clang codebase and using Git for version control</li>
                       <li>Worked on compiler optimization and static analysis techniques</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">C++</Badge>
-                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">LLVM</Badge>
-                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">Clang</Badge>
-                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">Formal Verification</Badge>
-                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">MISRA C</Badge>
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">C++</Badge>
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">LLVM</Badge>
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">Clang</Badge>
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">Formal Verification</Badge>
+                      <Badge className="bg-blue-100 text-blue-800 border-blue-300">MISRA C</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-purple-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-purple-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">2025</span>
+                    <span className="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">2025</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Teaching Assistant - Artificial Intelligence</h3>
-                  <p className="text-lg text-gray-400 mb-4">COL333 under Prof. Mausam, IIT Delhi</p>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <p className="mb-4 text-gray-300">
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Teaching Assistant - Artificial Intelligence</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">COL333 under Prof. Mausam, IIT Delhi</p>
+                  <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p className="mb-4 text-gray-700 leading-relaxed">
                       Currently serving as Teaching Assistant for the AI course, helping students understand core AI concepts.
                     </p>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                       <li>Designed quizzes and assignments for COL333 (Artificial Intelligence)</li>
                       <li>Conducted doubt sessions and mentored students on AI concepts</li>
                       <li>Evaluated student projects and provided feedback</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">Teaching</Badge>
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">AI</Badge>
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">Mentoring</Badge>
+                      <Badge className="bg-purple-100 text-purple-800 border-purple-300">Teaching</Badge>
+                      <Badge className="bg-purple-100 text-purple-800 border-purple-300">AI</Badge>
+                      <Badge className="bg-purple-100 text-purple-800 border-purple-300">Mentoring</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-indigo-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-indigo-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-indigo-900/30 text-indigo-300 px-3 py-1 rounded-full text-sm font-medium">2024</span>
+                    <span className="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">2024</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Research & Competition Lead</h3>
-                  <p className="text-lg text-gray-400 mb-4">Various Initiatives, IIT Delhi</p>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
-                      <li><strong>ML in Astronomy Workshop:</strong> Built LSTM-Attention models on light curves for astronomical object classification</li>
-                      <li><strong>ARIES Research Team Member:</strong> Conducted NLP sessions and contributed to multiple industry research projects</li>
-                      <li><strong>Inter IIT Tech Team Lead (Adobe):</strong> Led team for Adobe Research Problem Statement; designed solution for artifacts detection in AI-generated images</li>
-                      <li><strong>Tower Research Limestone Challenge:</strong> Achieved Top 50 selection twice in data science competition</li>
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Research & Competition Lead</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">Various Initiatives, IIT Delhi</p>
+                  <div className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                      <li><strong className="text-gray-900">ML in Astronomy Workshop:</strong> Built LSTM-Attention models on light curves for astronomical object classification</li>
+                      <li><strong className="text-gray-900">ARIES Research Team Member:</strong> Conducted NLP sessions and contributed to multiple industry research projects</li>
+                      <li><strong className="text-gray-900">Inter IIT Tech Team Lead (Adobe):</strong> Led team for Adobe Research Problem Statement; designed solution for artifacts detection in AI-generated images</li>
+                      <li><strong className="text-gray-900">Tower Research Limestone Challenge:</strong> Achieved Top 50 selection twice in data science competition</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Research</Badge>
-                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Competition</Badge>
-                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Leadership</Badge>
-                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">ML</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Research</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Competition</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Leadership</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">ML</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-green-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-emerald-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm font-medium">2023</span>
+                    <span className="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">2023</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Academic Mentor</h3>
-                  <p className="text-lg text-gray-400 mb-4">MTL100 (Calculus), IIT Delhi</p>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <p className="mb-4 text-gray-300">
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Academic Mentor</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">MTL100 (Calculus), IIT Delhi</p>
+                  <div className="bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p className="mb-4 text-gray-700 leading-relaxed">
                       Mentored 150+ freshers for the Calculus course, conducting regular doubt sessions in hybrid mode.
                     </p>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                       <li>Conducted doubt clearing sessions for MTL100 (Calculus)</li>
                       <li>Mentored over 150 freshers in understanding complex mathematical concepts</li>
                       <li>Organized both online and offline sessions for accessibility</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Mentoring</Badge>
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Mathematics</Badge>
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Teaching</Badge>
+                      <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Mentoring</Badge>
+                      <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Mathematics</Badge>
+                      <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Teaching</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
-                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-gray-900"></div>
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full text-sm font-medium">June 2022 - May 2023</span>
+                    <span className="bg-orange-100 text-orange-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">June 2022 - May 2023</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Technical Engineer</h3>
-                  <p className="text-lg text-gray-400 mb-4">Infinity Hyperloop, CAIC, IIT Delhi</p>
-                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                    <p className="mb-4 text-gray-300">
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Technical Engineer</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">Infinity Hyperloop, CAIC, IIT Delhi</p>
+                  <div className="bg-gradient-to-br from-orange-50 to-white border border-orange-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p className="mb-4 text-gray-700 leading-relaxed">
                      As part of the student hyperloop team, I contributed to developing control systems for our pod prototype.
                     </p>
-                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                       <li>Designed a PyQt5 interface for pod control and real-time monitoring</li>
                       <li>Implemented sensor input processing and STM microcontroller communication via CAN</li>
                       <li>Developed data visualization components for telemetry data</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">Python</Badge>
-                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">PyQt5</Badge>
-                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">CAN Protocol</Badge>
-                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">Embedded Systems</Badge>
+                      <Badge className="bg-orange-100 text-orange-800 border-orange-300">Python</Badge>
+                      <Badge className="bg-orange-100 text-orange-800 border-orange-300">PyQt5</Badge>
+                      <Badge className="bg-orange-100 text-orange-800 border-orange-300">CAN Protocol</Badge>
+                      <Badge className="bg-orange-100 text-orange-800 border-orange-300">Embedded Systems</Badge>
                     </div>
                   </div>
                 </div>
@@ -900,13 +911,13 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
 
           {/* Achievements Tab Content */}
           <TabsContent value="achievements">
-             <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+             <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
               My Education & Achievements
             </h2>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Award className="mr-2 text-yellow-500" /> Academic Milestones
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
+              <div className="bg-gradient-to-br from-white to-amber-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
+                  <Award className="mr-2 text-amber-600" /> Academic Milestones
                 </h3>
                 <div className="space-y-4">
                   <AchievementCard title="JEE Advanced 2021" description="Achieved All India Rank 116 among 200,000 students (Top ~0.06%)" icon="🏆" color="yellow"/>
@@ -917,41 +928,41 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <AchievementCard title="Tower Research Challenge 2024" description="Achieved Top 50 selection twice in Limestone Data Challenge" icon="📊" color="blue"/>
                 </div>
               </div>
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Terminal className="mr-2 text-blue-500" /> My Education
+              <div className="bg-gradient-to-br from-white to-blue-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
+                  <Terminal className="mr-2 text-blue-600" /> My Education
                 </h3>
                 <div className="space-y-6 mb-8">
-                  <div className="border-l-4 border-blue-500 pl-4 py-2 bg-gray-700/10 rounded-r-md">
+                  <div className="border-l-4 border-blue-500 pl-4 py-3 bg-blue-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
                     <div className="flex justify-between items-center mb-1">
-                      <h4 className="text-lg font-semibold text-blue-300">Indian Institute of Technology Delhi</h4>
-                      <span className="text-sm text-blue-400 font-medium">CGPA: 8.5</span>
+                      <h4 className="text-lg font-semibold text-blue-900">Indian Institute of Technology Delhi</h4>
+                      <span className="text-sm text-blue-700 font-bold bg-blue-100 px-2 py-1 rounded">CGPA: 8.5</span>
                     </div>
-                    <p className="text-gray-400 text-sm">B.Tech + M.Tech (Dual Degree), Computer Science & Engineering</p>
-                    <p className="text-xs text-gray-500">2021 - Present</p>
+                    <p className="text-gray-700 text-sm font-medium">B.Tech + M.Tech (Dual Degree), Computer Science & Engineering</p>
+                    <p className="text-xs text-gray-600 mt-1">2021 - Present</p>
                   </div>
-                  <div className="border-l-4 border-purple-500 pl-4 py-2 bg-gray-700/10 rounded-r-md">
-                     <h4 className="text-lg font-semibold text-purple-300">Lord Buddha Public School</h4>
-                     <p className="text-gray-400 text-sm">Senior Secondary (Class XII), CBSE</p>
-                     <p className="text-xs text-gray-500">Completed 2021</p>
+                  <div className="border-l-4 border-purple-500 pl-4 py-3 bg-purple-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
+                     <h4 className="text-lg font-semibold text-purple-900">Lord Buddha Public School</h4>
+                     <p className="text-gray-700 text-sm font-medium">Senior Secondary (Class XII), CBSE</p>
+                     <p className="text-xs text-gray-600 mt-1">Completed 2021</p>
                   </div>
-                   <div className="border-l-4 border-green-500 pl-4 py-2 bg-gray-700/10 rounded-r-md">
-                     <h4 className="text-lg font-semibold text-green-300">Lord Buddha Public School</h4>
-                     <p className="text-gray-400 text-sm">Secondary (Class X), CBSE</p>
-                     <p className="text-xs text-gray-500">Completed 2019</p>
+                   <div className="border-l-4 border-emerald-500 pl-4 py-3 bg-emerald-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
+                     <h4 className="text-lg font-semibold text-emerald-900">Lord Buddha Public School</h4>
+                     <p className="text-gray-700 text-sm font-medium">Secondary (Class X), CBSE</p>
+                     <p className="text-xs text-gray-600 mt-1">Completed 2019</p>
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-6 flex items-center">
-                  <Rocket className="mr-2 text-green-500" /> Other Activities & Learning
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
+                  <Rocket className="mr-2 text-emerald-600" /> Other Activities & Learning
                 </h3>
                 <div className="space-y-4">
-                  <div className="bg-gray-700/30 p-4 rounded-lg border border-gray-600/50">
-                    <h4 className="font-semibold text-green-300 mb-1">Enactus IITD Career Platform (2023)</h4>
-                    <p className="text-gray-300 text-sm">Backend developer for career upskilling platform using Django & MySQL, enabling skill development and job matching.</p>
+                  <div className="bg-gradient-to-r from-emerald-50 to-emerald-100/50 p-4 rounded-lg border border-emerald-200 hover:shadow-md transition-all duration-200">
+                    <h4 className="font-semibold text-emerald-900 mb-2">Enactus IITD Career Platform (2023)</h4>
+                    <p className="text-gray-700 text-sm">Backend developer for career upskilling platform using Django & MySQL, enabling skill development and job matching.</p>
                   </div>
-                  <div className="bg-gray-700/30 p-4 rounded-lg border border-gray-600/50">
-                    <h4 className="font-semibold text-green-300 mb-1">Harvard CS50x Course (2021)</h4>
-                    <p className="text-gray-300 text-sm">Completed Harvard&apos;s foundational CS course covering C, Python, data structures, algorithms, web development, and security concepts. {/* Corrected: &apos; -> &apos; */}</p>
+                  <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 p-4 rounded-lg border border-blue-200 hover:shadow-md transition-all duration-200">
+                    <h4 className="font-semibold text-blue-900 mb-2">Harvard CS50x Course (2021)</h4>
+                    <p className="text-gray-700 text-sm">Completed Harvard&apos;s foundational CS course covering C, Python, data structures, algorithms, web development, and security concepts. {/* Corrected: &apos; -> &apos; */}</p>
                   </div>
                 </div>
               </div>
@@ -967,31 +978,37 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-900 py-12 border-t border-gray-800">
-        <div className="container mx-auto px-6 text-center">
-          <h3 className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+      <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-16 border-t-4 border-blue-600 relative overflow-hidden">
+        {/* Decorative gradient orbs */}
+        <div className="absolute top-0 left-1/4 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-0 right-1/4 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+        <div className="container mx-auto px-6 text-center relative z-10">
+          <h3 className="text-3xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
             Let&apos;s Connect! {/* Corrected: &apos; -> &apos; */}
           </h3>
-          <p className="text-gray-400 mb-6">
-            Always open to interesting discussions and collaborations.
+          <p className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
+            Always open to interesting discussions, collaborations, and opportunities in AI, ML, and research.
           </p>
-          <div className="flex justify-center space-x-6 mb-8">
-            <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110" aria-label="GitHub Profile">
-              <Github className="w-6 h-6" />
+          <div className="flex justify-center gap-5 mb-10">
+            <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all transform hover:scale-110 hover:-translate-y-1 border border-gray-700 hover:border-gray-500" aria-label="GitHub Profile">
+              <Github className="w-7 h-7 text-gray-400 group-hover:text-white transition-colors" />
             </a>
-            <a href="https://www.linkedin.com/in/bhavesh-gurnani-410a68217" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110" aria-label="LinkedIn Profile">
-              <Linkedin className="w-6 h-6" />
+            <a href="https://www.linkedin.com/in/bhavesh-gurnani-410a68217" target="_blank" rel="noopener noreferrer" className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all transform hover:scale-110 hover:-translate-y-1 border border-gray-700 hover:border-blue-500" aria-label="LinkedIn Profile">
+              <Linkedin className="w-7 h-7 text-gray-400 group-hover:text-blue-400 transition-colors" />
             </a>
-             <a href="mailto:bhavesh.gurnani2003@gmail.com" className="text-gray-400 hover:text-white transition-colors transform hover:scale-110" aria-label="Send Email">
-              <Mail className="w-6 h-6" />
+             <a href="mailto:bhavesh.gurnani2003@gmail.com" className="group p-4 bg-white/5 hover:bg-white/10 rounded-xl transition-all transform hover:scale-110 hover:-translate-y-1 border border-gray-700 hover:border-purple-500" aria-label="Send Email">
+              <Mail className="w-7 h-7 text-gray-400 group-hover:text-purple-400 transition-colors" />
             </a>
           </div>
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} Bhavesh Gurnani.
-          </p>
-           <p className="text-xs text-gray-600 mt-2">
-            Built with Next.js, React, Tailwind CSS, shadcn/ui & ❤️
-          </p>
+          <div className="border-t border-gray-700 pt-8">
+            <p className="text-sm text-gray-400 mb-2 font-medium">
+              © {new Date().getFullYear()} Bhavesh Gurnani. All rights reserved.
+            </p>
+             <p className="text-xs text-gray-500">
+              Built with <span className="text-red-400">❤️</span> using Next.js, React, Tailwind CSS & shadcn/ui
+            </p>
+          </div>
         </div>
       </footer>
     </div>
