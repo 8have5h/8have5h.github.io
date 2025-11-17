@@ -39,52 +39,67 @@ function ProjectCard({
   projectLink,
   githubLink,
   color = 'gray'
-}: ProjectCardProps) { // Removed explicit : JSX.Element return type
+}: ProjectCardProps) {
   const colorClasses = {
-    blue: 'border-blue-500 hover:shadow-blue-500/30',
-    purple: 'border-purple-500 hover:shadow-purple-500/30',
-    green: 'border-green-500 hover:shadow-green-500/30',
-    yellow: 'border-yellow-500 hover:shadow-yellow-500/30',
-    red: 'border-red-500 hover:shadow-red-500/30',
-    gray: 'border-gray-500 hover:shadow-gray-400/20',
+    blue: 'border-l-blue-500 hover:border-l-blue-600 bg-gradient-to-r from-blue-50/50 to-white',
+    purple: 'border-l-purple-500 hover:border-l-purple-600 bg-gradient-to-r from-purple-50/50 to-white',
+    green: 'border-l-emerald-500 hover:border-l-emerald-600 bg-gradient-to-r from-emerald-50/50 to-white',
+    yellow: 'border-l-amber-500 hover:border-l-amber-600 bg-gradient-to-r from-amber-50/50 to-white',
+    red: 'border-l-rose-500 hover:border-l-rose-600 bg-gradient-to-r from-rose-50/50 to-white',
+    gray: 'border-l-gray-400 hover:border-l-gray-500 bg-gradient-to-r from-gray-50/50 to-white',
+  };
+
+  const titleColorClasses = {
+    blue: 'text-blue-700',
+    purple: 'text-purple-700',
+    green: 'text-emerald-700',
+    yellow: 'text-amber-700',
+    red: 'text-rose-700',
+    gray: 'text-gray-700',
   };
 
   const badgeColorClasses = {
-    blue: 'bg-blue-900/30 text-blue-300 border-blue-500',
-    purple: 'bg-purple-900/30 text-purple-300 border-purple-500',
-    green: 'bg-green-900/30 text-green-300 border-green-500',
-    yellow: 'bg-yellow-900/30 text-yellow-300 border-yellow-500',
-    red: 'bg-red-900/30 text-red-300 border-red-500',
-    gray: 'bg-gray-700/30 text-gray-300 border-gray-500',
-  }
+    blue: 'bg-blue-100 text-blue-700 border-blue-200',
+    purple: 'bg-purple-100 text-purple-700 border-purple-200',
+    green: 'bg-emerald-100 text-emerald-700 border-emerald-200',
+    yellow: 'bg-amber-100 text-amber-700 border-amber-200',
+    red: 'bg-rose-100 text-rose-700 border-rose-200',
+    gray: 'bg-gray-100 text-gray-700 border-gray-200',
+  };
 
-  // Dynamic color classes (keep comments or use safelist if needed)
-  // text-blue-300 text-purple-300 text-green-300 text-yellow-300 text-red-300 text-gray-300
-  // bg-blue-600 bg-purple-600 bg-green-600 bg-yellow-600 bg-red-600 bg-gray-600
-  // hover:bg-blue-500 hover:bg-purple-500 hover:bg-green-500 hover:bg-yellow-500 hover:bg-red-500 hover:bg-gray-500
-  // border-blue-700 border-purple-700 border-green-700 border-yellow-700 border-red-700 border-gray-700
+  const buttonColorClasses = {
+    blue: 'bg-blue-600 hover:bg-blue-700',
+    purple: 'bg-purple-600 hover:bg-purple-700',
+    green: 'bg-emerald-600 hover:bg-emerald-700',
+    yellow: 'bg-amber-600 hover:bg-amber-700',
+    red: 'bg-rose-600 hover:bg-rose-700',
+    gray: 'bg-gray-600 hover:bg-gray-700',
+  };
 
   return (
-    <Card className={`group bg-gray-800/50 border ${colorClasses[color]} overflow-hidden transition-all duration-300 hover:shadow-lg hover:-translate-y-1 flex flex-col`}>
+    <Card className={`group ${colorClasses[color]} border-l-4 border-t border-r border-b border-gray-200 overflow-hidden transition-all duration-300 hover:shadow-xl flex flex-col`}>
       <CardContent className="p-6 md:p-8 flex flex-col flex-grow">
-        <h3 className={`text-2xl font-bold mb-2 text-${color}-300`}>{title}</h3>
-        <p className="text-lg text-gray-400 mb-4">{subtitle}</p>
-        <p className="text-gray-300 mb-6">{description}</p>
+        <h3 className={`text-2xl font-bold mb-2 ${titleColorClasses[color]}`}>{title}</h3>
+        <p className="text-base text-gray-600 mb-4 font-medium">{subtitle}</p>
+        <p className="text-gray-700 mb-6 leading-relaxed">{description}</p>
 
         <div className="mb-6">
-          <h4 className="text-sm font-semibold uppercase text-gray-500 mb-3">Key Features / Learnings:</h4>
-          <ul className="list-disc list-inside space-y-1 text-gray-300 text-sm">
+          <h4 className="text-sm font-semibold uppercase text-gray-500 mb-3 tracking-wide">Key Highlights</h4>
+          <ul className="space-y-2 text-gray-700 text-sm">
             {details.map((detail, index) => (
-              <li key={index}>{detail}</li>
+              <li key={index} className="flex items-start gap-2">
+                <span className="text-blue-600 mt-1">•</span>
+                <span>{detail}</span>
+              </li>
             ))}
           </ul>
         </div>
 
         <div className="mb-6">
-           <h4 className="text-sm font-semibold uppercase text-gray-500 mb-3">Technologies:</h4>
+           <h4 className="text-sm font-semibold uppercase text-gray-500 mb-3 tracking-wide">Technologies</h4>
            <div className="flex flex-wrap gap-2">
               {technologies.map((tech, index) => (
-                <Badge key={index} variant="outline" className={`${badgeColorClasses[color]} text-xs`}>
+                <Badge key={index} variant="outline" className={`${badgeColorClasses[color]} text-xs font-medium`}>
                   {tech}
                 </Badge>
               ))}
@@ -92,13 +107,13 @@ function ProjectCard({
         </div>
 
         {(projectLink || githubLink) && (
-          <div className="mt-auto pt-4 flex flex-wrap gap-4">
+          <div className="mt-auto pt-4 flex flex-wrap gap-3">
             {githubLink && (
               <a
                 href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md bg-gray-700 hover:bg-gray-600 transition-colors text-${color}-300 border border-${color}-700`}
+                className="inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-lg bg-gray-900 hover:bg-gray-800 transition-all text-white font-medium shadow-md hover:shadow-lg"
               >
                 <Github className="w-4 h-4" /> View Code
               </a>
@@ -108,7 +123,7 @@ function ProjectCard({
                 href={projectLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2 text-sm rounded-md bg-${color}-600 hover:bg-${color}-500 transition-colors text-white`}
+                className={`inline-flex items-center gap-2 px-5 py-2.5 text-sm rounded-lg ${buttonColorClasses[color]} transition-all text-white font-medium shadow-md hover:shadow-lg`}
               >
                 <ExternalLink className="w-4 h-4" /> View Project
               </a>
@@ -120,45 +135,78 @@ function ProjectCard({
   );
 }
 
-// AchievementCard Component (Corrected Typing - Infer Return Type)
+// AchievementCard Component
 function AchievementCard({
     title,
     description,
     icon,
     color = 'yellow'
-}: AchievementCardProps) { // Removed explicit : JSX.Element return type
+}: AchievementCardProps) {
     const colorClasses = {
-        yellow: 'text-yellow-400 border-yellow-500/30',
-        blue: 'text-blue-400 border-blue-500/30',
-        purple: 'text-purple-400 border-purple-500/30',
-        green: 'text-green-400 border-green-500/30',
-    }
-    // Ensure dynamic colors recognized
-    // text-yellow-400 text-blue-400 text-purple-400 text-green-400
-    // border-yellow-500/30 border-blue-500/30 border-purple-500/30 border-green-500/30
+        yellow: 'text-amber-600 border-amber-400 bg-amber-50',
+        blue: 'text-blue-600 border-blue-400 bg-blue-50',
+        purple: 'text-purple-600 border-purple-400 bg-purple-50',
+        green: 'text-emerald-600 border-emerald-400 bg-emerald-50',
+    };
+
+    const titleColorClasses = {
+        yellow: 'text-amber-900',
+        blue: 'text-blue-900',
+        purple: 'text-purple-900',
+        green: 'text-emerald-900',
+    };
 
   return (
-    <div className={`flex items-start space-x-4 p-4 bg-gray-700/20 rounded-lg border-l-4 ${colorClasses[color]} transition-all duration-200 hover:bg-gray-700/40`}>
-      <span className={`text-2xl ${colorClasses[color]}`}>{icon}</span>
+    <div className={`flex items-start space-x-4 p-5 ${colorClasses[color]} rounded-xl border-l-4 ${colorClasses[color]} transition-all duration-200 hover:shadow-md border border-${color === 'yellow' ? 'amber' : color}-200`}>
+      <span className={`text-3xl ${colorClasses[color]}`}>{icon}</span>
       <div>
-        <h4 className={`font-semibold ${colorClasses[color]}`}>{title}</h4>
-        <p className="text-gray-300 text-sm">{description}</p>
+        <h4 className={`font-bold ${titleColorClasses[color]} text-base mb-1`}>{title}</h4>
+        <p className="text-gray-700 text-sm leading-relaxed">{description}</p>
       </div>
     </div>
   );
 }
 
-// Blog Tab Content Component (Corrected Typing - Infer Return Type)
-function BlogTabContent() { // Removed explicit : JSX.Element return type
-  const [postContent, setPostContent] = useState<string>('');
-  const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
+// Blog Post Interface
+interface BlogPost {
+  id: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  tags: string[];
+  filename: string;
+}
 
-  useEffect(() => {
-    fetch('/posts/sample-post.md') // Ensure this file exists in /public/posts/
+// Blog posts data
+const blogPosts: BlogPost[] = [
+  {
+    id: '1',
+    title: 'Welcome to My Blog',
+    date: '2024-01-15',
+    excerpt: 'An introduction to my blog where I share thoughts on AI, machine learning, and my journey as a computer science student.',
+    tags: ['Introduction', 'AI', 'Machine Learning'],
+    filename: 'sample-post.md'
+  },
+  // Add more blog posts here as you create them
+];
+
+// Blog Tab Content Component with Enhanced Features
+function BlogTabContent() {
+  const [selectedPost, setSelectedPost] = useState<BlogPost | null>(null);
+  const [postContent, setPostContent] = useState<string>('');
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const [searchTerm, setSearchTerm] = useState<string>('');
+
+  const loadPost = (post: BlogPost) => {
+    setIsLoading(true);
+    setError(null);
+    setSelectedPost(post);
+
+    fetch(`/posts/${post.filename}`)
       .then(response => {
         if (!response.ok) {
-          throw new Error(`Could not fetch blog post: ${response.statusText} (Status: ${response.status})`);
+          throw new Error(`Could not fetch blog post: ${response.statusText}`);
         }
         return response.text();
       })
@@ -168,39 +216,133 @@ function BlogTabContent() { // Removed explicit : JSX.Element return type
       })
       .catch(err => {
         console.error("Error fetching blog post:", err);
-        setError(`Failed to load blog post. Please check if '/posts/sample-post.md' exists in the public folder and is accessible. Error: ${err.message}`);
+        setError(`Failed to load blog post: ${err.message}`);
         setIsLoading(false);
       });
-  }, []);
+  };
+
+  const filteredPosts = blogPosts.filter(post =>
+    post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.excerpt.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.tags.some(tag => tag.toLowerCase().includes(searchTerm.toLowerCase()))
+  );
 
   return (
     <div>
       <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-        Blog / Musings
+        Blog & Thoughts
       </h2>
-      <div className="max-w-3xl mx-auto bg-gray-800/50 border border-gray-700 rounded-lg p-6 md:p-8">
-        {isLoading && <p className="text-center text-gray-400">Loading post...</p>}
-        {error && <p className="text-center text-red-400 px-4 py-2 bg-red-900/20 border border-red-500/30 rounded">{error}</p>}
-        {!isLoading && !error && postContent && (
-          // Ensure @tailwindcss/typography is installed and configured
-          <article className="prose prose-invert max-w-none lg:prose-lg
-                              prose-headings:text-transparent prose-headings:bg-clip-text prose-headings:bg-gradient-to-r prose-headings:from-blue-400 prose-headings:to-purple-500
-                              prose-a:text-blue-400 hover:prose-a:text-blue-300
-                              prose-strong:text-yellow-300
-                              prose-code:text-yellow-300 prose-code:bg-gray-700 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
-                              prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-700 prose-pre:rounded-md prose-pre:p-4
-                              prose-blockquote:border-l-purple-500 prose-blockquote:text-gray-400
-                              prose-li:marker:text-purple-400">
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{postContent}</ReactMarkdown>
-          </article>
-        )}
-        {!isLoading && !error && !postContent && (
-            <p className="text-center text-gray-500">Blog post content is empty or could not be loaded.</p>
-        )}
-        <p className="text-xs text-gray-500 mt-8 text-center">
-            (Note: This is a basic blog setup. More posts and features coming soon!)
-        </p>
-      </div>
+
+      {!selectedPost ? (
+        <div className="max-w-5xl mx-auto">
+          {/* Search Bar */}
+          <div className="mb-8">
+            <input
+              type="text"
+              placeholder="Search posts by title, content, or tags..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full px-4 py-3 bg-gray-800/50 border border-gray-700 rounded-lg text-gray-200 placeholder-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-colors"
+            />
+          </div>
+
+          {/* Blog Posts Grid */}
+          {filteredPosts.length === 0 ? (
+            <div className="text-center py-12 bg-gray-800/30 border border-gray-700 rounded-lg">
+              <p className="text-gray-400 text-lg mb-2">No posts found</p>
+              <p className="text-gray-500 text-sm">Try a different search term or check back later for new content!</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {filteredPosts.map((post) => (
+                <div
+                  key={post.id}
+                  onClick={() => loadPost(post)}
+                  className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 hover:border-blue-500 transition-all duration-300 cursor-pointer hover:shadow-lg hover:shadow-blue-500/20 hover:-translate-y-1 group"
+                >
+                  <div className="flex justify-between items-start mb-3">
+                    <h3 className="text-xl font-bold text-blue-300 group-hover:text-blue-200 transition-colors">
+                      {post.title}
+                    </h3>
+                    <BookOpen className="w-5 h-5 text-gray-500 group-hover:text-blue-400 transition-colors" />
+                  </div>
+                  <p className="text-sm text-gray-500 mb-3">{post.date}</p>
+                  <p className="text-gray-300 mb-4 line-clamp-3">{post.excerpt}</p>
+                  <div className="flex flex-wrap gap-2">
+                    {post.tags.map((tag, idx) => (
+                      <Badge key={idx} variant="outline" className="bg-blue-900/30 text-blue-300 border-blue-500 text-xs">
+                        {tag}
+                      </Badge>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          )}
+
+          <div className="mt-8 text-center">
+            <p className="text-gray-500 text-sm">
+              More posts coming soon! Stay tuned for articles on AI, ML, and my research journey.
+            </p>
+          </div>
+        </div>
+      ) : (
+        <div className="max-w-4xl mx-auto">
+          {/* Back Button */}
+          <button
+            onClick={() => {
+              setSelectedPost(null);
+              setPostContent('');
+            }}
+            className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-gray-800 hover:bg-gray-700 border border-gray-700 rounded-lg text-gray-300 transition-colors"
+          >
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 19l-7-7 7-7" />
+            </svg>
+            Back to All Posts
+          </button>
+
+          {/* Post Content */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6 md:p-8">
+            <div className="mb-6">
+              <h1 className="text-3xl md:text-4xl font-bold mb-3 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+                {selectedPost.title}
+              </h1>
+              <div className="flex items-center gap-4 text-sm text-gray-400 mb-4">
+                <span>{selectedPost.date}</span>
+                <span>•</span>
+                <div className="flex gap-2">
+                  {selectedPost.tags.map((tag, idx) => (
+                    <Badge key={idx} variant="outline" className="bg-purple-900/30 text-purple-300 border-purple-500 text-xs">
+                      {tag}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {isLoading && <p className="text-center text-gray-400 py-8">Loading post...</p>}
+            {error && (
+              <p className="text-center text-red-400 px-4 py-3 bg-red-900/20 border border-red-500/30 rounded">
+                {error}
+              </p>
+            )}
+            {!isLoading && !error && postContent && (
+              <article className="prose prose-invert max-w-none lg:prose-lg
+                                prose-headings:text-transparent prose-headings:bg-clip-text prose-headings:bg-gradient-to-r prose-headings:from-blue-400 prose-headings:to-purple-500
+                                prose-a:text-blue-400 hover:prose-a:text-blue-300 prose-a:underline
+                                prose-strong:text-yellow-300
+                                prose-code:text-yellow-300 prose-code:bg-gray-700 prose-code:px-1 prose-code:py-0.5 prose-code:rounded
+                                prose-pre:bg-gray-900 prose-pre:border prose-pre:border-gray-700 prose-pre:rounded-md prose-pre:p-4
+                                prose-blockquote:border-l-purple-500 prose-blockquote:text-gray-400
+                                prose-li:marker:text-purple-400
+                                prose-img:rounded-lg prose-img:shadow-lg">
+                <ReactMarkdown remarkPlugins={[remarkGfm]}>{postContent}</ReactMarkdown>
+              </article>
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 }
@@ -217,105 +359,133 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
   }, []);
 
   return (
-    <div className={`min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-gray-100 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
-      {/* Hero Section */}
-      <header className="relative h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 to-purple-900/80 z-10"></div>
-        <div className="absolute inset-0 z-0">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_rgba(55,65,81,0.3)_0,_#111827_100%)]"></div>
-          {[...Array(20)].map((_, i) => (
-            <div
-              key={i}
-              className="absolute rounded-full bg-blue-500/20 animate-float" // Ensure animate-float defined
-              style={{ // Uses React.CSSProperties implicitly
-                top: `${Math.random() * 100}%`,
-                left: `${Math.random() * 100}%`,
-                width: `${Math.random() * 300 + 50}px`,
-                height: `${Math.random() * 300 + 50}px`,
-                opacity: Math.random() * 0.3,
-                filter: 'blur(70px)',
-                animationDuration: `${Math.random() * 10 + 10}s`,
-                animationDelay: `${Math.random() * 5}s`
-              }}
-            ></div>
-          ))}
+    <div className={`min-h-screen bg-white text-gray-900 transition-opacity duration-1000 ${isVisible ? 'opacity-100' : 'opacity-0'}`}>
+      {/* Hero Section - Modern Minimalist */}
+      <header className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        {/* Subtle background pattern */}
+        <div className="absolute inset-0 opacity-[0.03]">
+          <div className="absolute inset-0" style={{backgroundImage: 'radial-gradient(circle at 1px 1px, rgb(0 0 0) 1px, transparent 0)', backgroundSize: '40px 40px'}}></div>
         </div>
 
-        <div className="container mx-auto px-6 z-20 text-center">
-          <h1 className="text-5xl md:text-6xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
-            Hi, I&apos;m Bhavesh Gurnani {/* Corrected: &apos; -> &apos; */}
-          </h1>
-          <h2 className="text-xl md:text-2xl mb-8 text-gray-300">Computer Science & Engineering @ IIT Delhi</h2>
-          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8 text-gray-300">
-            Machine Learning Enthusiast
-          </p>
+        {/* Floating gradient orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-blue-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float"></div>
+        <div className="absolute top-40 right-10 w-72 h-72 bg-purple-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{animationDelay: '2s'}}></div>
+        <div className="absolute bottom-20 left-1/2 w-72 h-72 bg-pink-400/20 rounded-full mix-blend-multiply filter blur-3xl animate-float" style={{animationDelay: '4s'}}></div>
 
-          <div className="flex justify-center space-x-4 mb-12">
-             <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-all hover:scale-110" aria-label="GitHub Profile">
-               <Github className="w-6 h-6" />
-             </a>
-             <a href="https://www.linkedin.com/in/bhavesh-gurnani-410a68217" target="_blank" rel="noopener noreferrer" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-all hover:scale-110" aria-label="LinkedIn Profile">
-               <Linkedin className="w-6 h-6" />
-             </a>
-             <a href="mailto:bhavesh.gurnani2003@gmail.com" className="p-3 bg-gray-800 rounded-full hover:bg-gray-700 transition-all hover:scale-110" aria-label="Send Email">
-               <Mail className="w-6 h-6" />
-             </a>
-          </div>
+        <div className="container mx-auto px-6 z-10">
+          <div className="max-w-4xl mx-auto text-center">
+            {/* Profile Image */}
+            <div className="mb-8 inline-block">
+              <div className="relative">
+                <div className="w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-4 border-white shadow-2xl mx-auto">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="/profile.jpg"
+                    alt="Bhavesh Gurnani"
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                <div className="absolute -bottom-2 -right-2 bg-green-500 w-8 h-8 rounded-full border-4 border-white"></div>
+              </div>
+            </div>
 
-          <div className="flex flex-wrap justify-center gap-3">
-            <Badge variant="outline" className="px-4 py-2 bg-blue-900/30 border-blue-500 text-blue-300">Machine Learning</Badge>
-            <Badge variant="outline" className="px-4 py-2 bg-purple-900/30 border-purple-500 text-purple-300">Deep Learning</Badge>
-            <Badge variant="outline" className="px-4 py-2 bg-green-900/30 border-green-500 text-green-300">C++</Badge>
-            <Badge variant="outline" className="px-4 py-2 bg-yellow-900/30 border-yellow-500 text-yellow-300">Python</Badge>
-            <Badge variant="outline" className="px-4 py-2 bg-red-900/30 border-red-500 text-red-300">NLP</Badge>
-            <Badge variant="outline" className="px-4 py-2 bg-indigo-900/30 border-indigo-500 text-indigo-300">AI Safety</Badge>
+            <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent leading-tight">
+              Bhavesh Gurnani
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-700 mb-4 font-medium">
+              Computer Science & Engineering @ IIT Delhi
+            </p>
+
+            <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+              Fifth-year student passionate about AI, Machine Learning, and building intelligent systems.
+              Researching Bayesian Networks, Game AI, and Abstract Reasoning.
+            </p>
+
+            {/* Social Links - Redesigned */}
+            <div className="flex justify-center gap-4 mb-12">
+              <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer"
+                 className="flex items-center gap-2 px-6 py-3 bg-gray-900 text-white rounded-full hover:bg-gray-800 transition-all hover:scale-105 shadow-lg"
+                 aria-label="GitHub Profile">
+                <Github className="w-5 h-5" />
+                <span className="font-medium">GitHub</span>
+              </a>
+              <a href="https://www.linkedin.com/in/bhavesh-gurnani-410a68217" target="_blank" rel="noopener noreferrer"
+                 className="flex items-center gap-2 px-6 py-3 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-all hover:scale-105 shadow-lg"
+                 aria-label="LinkedIn Profile">
+                <Linkedin className="w-5 h-5" />
+                <span className="font-medium">LinkedIn</span>
+              </a>
+              <a href="mailto:bhavesh.gurnani2003@gmail.com"
+                 className="flex items-center gap-2 px-6 py-3 bg-white text-gray-900 rounded-full hover:bg-gray-50 transition-all hover:scale-105 shadow-lg border-2 border-gray-200"
+                 aria-label="Send Email">
+                <Mail className="w-5 h-5" />
+                <span className="font-medium">Email</span>
+              </a>
+            </div>
+
+            {/* Skills Tags - Modern Design */}
+            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-blue-700 rounded-full text-sm font-medium shadow-md border border-blue-100">Machine Learning</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-purple-700 rounded-full text-sm font-medium shadow-md border border-purple-100">Deep Learning</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-emerald-700 rounded-full text-sm font-medium shadow-md border border-emerald-100">Python</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-amber-700 rounded-full text-sm font-medium shadow-md border border-amber-100">C++</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-rose-700 rounded-full text-sm font-medium shadow-md border border-rose-100">NLP</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-indigo-700 rounded-full text-sm font-medium shadow-md border border-indigo-100">AI Safety</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-cyan-700 rounded-full text-sm font-medium shadow-md border border-cyan-100">Bayesian Networks</span>
+            </div>
           </div>
         </div>
 
         <a href="#main-content"
-           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-gray-400 hover:text-gray-200" // Ensure animate-bounce defined
+           className="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce text-gray-400 hover:text-gray-700 transition-colors"
            aria-label="Scroll down to main content">
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </a>
       </header>
 
-      <main id="main-content" className="container mx-auto px-4 sm:px-6 py-16">
+      <main id="main-content" className="container mx-auto px-4 sm:px-6 py-20 bg-gray-50">
         <Tabs defaultValue="about" className="mb-16">
-           <TabsList className="grid w-full h-12 grid-cols-3 sm:grid-cols-5 mb-12 bg-gray-800 p-1 rounded-lg">
-             <TabsTrigger value="about" aria-label="About Me" className="h-10 data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-lg py-2 rounded transition-colors">
+           <TabsList className="grid w-full max-w-4xl mx-auto h-14 grid-cols-3 sm:grid-cols-5 mb-16 bg-white p-1.5 rounded-2xl shadow-lg border border-gray-200">
+             <TabsTrigger value="about" aria-label="About Me" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <User className="w-4 h-4 sm:w-5 sm:h-5" /> About
              </TabsTrigger>
-             <TabsTrigger value="projects" aria-label="My Projects" className="h-10 data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-lg py-2 rounded transition-colors">
+             <TabsTrigger value="projects" aria-label="My Projects" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <Code className="w-4 h-4 sm:w-5 sm:h-5" /> Projects
              </TabsTrigger>
-             <TabsTrigger value="experience" aria-label="My Experience" className="h-10 data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-lg py-2 rounded transition-colors">
+             <TabsTrigger value="experience" aria-label="My Experience" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <Briefcase className="w-4 h-4 sm:w-5 sm:h-5" /> Experience
              </TabsTrigger>
-             <TabsTrigger value="achievements" aria-label="My Achievements" className="h-10 data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-lg py-2 rounded transition-colors">
+             <TabsTrigger value="achievements" aria-label="My Achievements" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <Award className="w-4 h-4 sm:w-5 sm:h-5" /> Achievements
              </TabsTrigger>
-              <TabsTrigger value="blog" aria-label="My Blog" className="h-10 data-[state=active]:bg-gray-700 data-[state=active]:text-white text-gray-400 flex items-center justify-center gap-2 text-sm sm:text-lg py-2 rounded transition-colors">
+              <TabsTrigger value="blog" aria-label="My Blog" className="h-11 data-[state=active]:bg-blue-600 data-[state=active]:text-white data-[state=active]:shadow-md text-gray-600 flex items-center justify-center gap-2 text-sm sm:text-base py-2 rounded-xl transition-all font-medium hover:text-blue-600">
                <BookOpen className="w-4 h-4 sm:w-5 sm:h-5" /> Blog
              </TabsTrigger>
            </TabsList>
 
           {/* About Tab Content */}
          <TabsContent value="about">
-            <div className="max-w-4xl mx-auto">
-              <h2 className="text-3xl font-bold mb-8 text-center text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">
+            <div className="max-w-6xl mx-auto">
+              <h2 className="text-4xl font-bold mb-12 text-center bg-gradient-to-r from-gray-900 via-blue-800 to-indigo-900 bg-clip-text text-transparent">
                 About Me
               </h2>
-              <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-8 mb-12">
+              <div className="bg-white border border-gray-200 rounded-2xl p-8 md:p-10 mb-12 shadow-lg">
                 <div className="flex flex-col md:flex-row gap-8 items-center mb-8">
-                  <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-5xl md:text-6xl font-bold shadow-lg flex-shrink-0 overflow-hidden">
-                     <span className="select-none">BG</span>
+                  <div className="w-36 h-36 md:w-48 md:h-48 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg flex-shrink-0 overflow-hidden border-4 border-blue-500/30">
+                     {/* eslint-disable-next-line @next/next/no-img-element */}
+                     <img
+                       src="/profile.jpg"
+                       alt="Bhavesh Gurnani"
+                       className="w-full h-full object-cover"
+                     />
                   </div>
                   <div className="text-center md:text-left">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Bhavesh Gurnani</h3>
-                    <p className="text-gray-300 mb-4">
-                      I&apos;m a passionate Computer Science student at IIT Delhi, driven by a strong foundation in mathematics and programming. {/* Corrected: &apos; -> &apos; */}
+                    <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">Bhavesh Gurnani</h3>
+                    <p className="text-gray-700 mb-5 text-lg leading-relaxed">
+                      I&apos;m a passionate Computer Science student at IIT Delhi, driven by a strong foundation in mathematics and programming.
                       I love exploring the frontiers of AI, particularly the intersections of machine learning, computer vision, and natural language processing.
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
@@ -337,56 +507,56 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                     </div>
                   </div>
                 </div>
-                <div className="prose prose-invert max-w-none text-gray-300 prose-p:leading-relaxed prose-headings:text-gray-100 prose-strong:text-yellow-300">
-                   <p>
-                    Currently, I&apos;m pursuing a dual degree (B.Tech + M.Tech) in Computer Science & Engineering at IIT Delhi. My academic journey began strong, achieving <strong className="text-yellow-400">AIR 116 in JEE Advanced</strong>, which opened the doors to this incredible institution. {/* Corrected: &apos; -> &apos; */}
+                <div className="prose max-w-none text-gray-700 prose-p:leading-relaxed prose-headings:text-gray-900 prose-strong:font-bold">
+                   <p className="text-lg">
+                    Currently, I&apos;m pursuing a dual degree (B.Tech + M.Tech) in Computer Science & Engineering at IIT Delhi. My academic journey began strong, achieving <strong className="text-amber-700">AIR 116 in JEE Advanced</strong>, which opened the doors to this incredible institution.
                   </p>
-                  <p>
-                    My core fascination lies within <strong className="text-blue-400">Machine Learning</strong> and <strong className="text-purple-400">Deep Learning</strong>. I&apos;m particularly interested in understanding how these complex models work, which leads me to the field of <strong className="text-indigo-400">Mechanistic Interpretability</strong> – trying to reverse engineer neural networks to ensure AI systems are safe and aligned with human values (<strong className="text-indigo-400">AI Safety</strong>). {/* Corrected: &apos; -> &apos; */}
+                  <p className="text-lg">
+                    My core fascination lies within <strong className="text-blue-700">Machine Learning</strong> and <strong className="text-purple-700">Deep Learning</strong>. I&apos;m particularly interested in understanding how these complex models work, which leads me to the field of <strong className="text-indigo-700">Mechanistic Interpretability</strong> – trying to reverse engineer neural networks to ensure AI systems are safe and aligned with human values (<strong className="text-indigo-700">AI Safety</strong>).
                   </p>
-                  <p>
-                    I&apos;m actively working on challenging problems like the <strong className="text-green-400">ARC-AGI challenge</strong>, exploring techniques from program synthesis to model fine-tuning. I also have a strong background in <strong className="text-yellow-400">Competitive Programming</strong> which sharpens my algorithmic thinking. {/* Corrected: &apos; -> &apos; */}
+                  <p className="text-lg">
+                    I&apos;m actively working on challenging problems like the <strong className="text-emerald-700">ARC-AGI challenge</strong>, exploring techniques from program synthesis to model fine-tuning. I also have a strong background in <strong className="text-amber-700">Competitive Programming</strong> which sharpens my algorithmic thinking.
                   </p>
-                  <p>
-                    I&apos;m always eager to learn, collaborate, and tackle complex problems. If you&apos;re interested in similar areas, feel free to reach out! {/* Corrected: &apos; -> &apos; twice */}
+                  <p className="text-lg">
+                    I&apos;m always eager to learn, collaborate, and tackle complex problems. If you&apos;re interested in similar areas, feel free to reach out!
                   </p>
                 </div>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                  <h3 className="text-xl font-bold mb-4 flex items-center">
-                    <Terminal className="mr-2 text-green-400" /> My Technical Toolkit
+                <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-2xl p-8 shadow-lg">
+                  <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
+                    <Terminal className="mr-3 text-blue-600" /> Technical Toolkit
                   </h3>
                    <div className="space-y-6">
                     <div>
-                      <h4 className="font-semibold text-blue-300 mb-2 text-sm uppercase tracking-wider">Programming Languages</h4>
+                      <h4 className="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wider">Programming Languages</h4>
                       <div className="flex flex-wrap gap-2">
-                        {["Python", "C++", "C", "Java", "JavaScript", "SML", "Prolog", "VHDL"].map((skill, i) => (
-                           <Badge key={i} variant="secondary" className="bg-blue-900/40 text-blue-200 border border-blue-700/50">{skill}</Badge>
+                        {["Python", "C++", "C", "Java", "JavaScript", "SML", "Prolog", "VHDL", "ml-lex", "ml-yacc"].map((skill, i) => (
+                           <Badge key={i} variant="secondary" className="bg-blue-100 text-blue-700 border border-blue-300 font-medium">{skill}</Badge>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-semibold text-green-300 mb-2 text-sm uppercase tracking-wider">Frameworks & Libraries</h4>
+                      <h4 className="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wider">Frameworks & Libraries</h4>
                       <div className="flex flex-wrap gap-2">
-                        {["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas", "Django", "Flask", "React", "LLVM"].map((skill, i) => (
-                          <Badge key={i} variant="secondary" className="bg-green-900/40 text-green-200 border border-green-700/50">{skill}</Badge>
+                        {["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas", "OpenCV", "Django", "Flask", "React", "LLVM"].map((skill, i) => (
+                          <Badge key={i} variant="secondary" className="bg-emerald-100 text-emerald-700 border border-emerald-300 font-medium">{skill}</Badge>
                         ))}
                       </div>
                     </div>
                     <div>
-                       <h4 className="font-semibold text-purple-300 mb-2 text-sm uppercase tracking-wider">Tools & Platforms</h4>
+                       <h4 className="font-bold text-purple-800 mb-3 text-sm uppercase tracking-wider">Tools & Platforms</h4>
                        <div className="flex flex-wrap gap-2">
                          {["Git", "Docker", "Linux", "HPC", "VS Code", "Jupyter"].map((skill, i) => (
-                            <Badge key={i} variant="secondary" className="bg-purple-900/40 text-purple-200 border border-purple-700/50">{skill}</Badge>
+                            <Badge key={i} variant="secondary" className="bg-purple-100 text-purple-700 border border-purple-300 font-medium">{skill}</Badge>
                          ))}
                        </div>
                     </div>
                   </div>
                 </div>
-                <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
-                  <h3 className="text-xl font-bold mb-4 flex items-center">
-                    <BrainCircuit className="mr-2 text-purple-400" /> Areas I&apos;m Excited About {/* Corrected: &apos; -> &apos; */}
+                <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-2xl p-8 shadow-lg">
+                  <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
+                    <BrainCircuit className="mr-3 text-purple-600" /> Research Interests
                   </h3>
                   <div className="space-y-4">
                      <div className="p-3 bg-purple-900/20 border-l-4 border-purple-500 rounded">
@@ -426,6 +596,22 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             </h2>
 
             <ProjectCard
+              title="Improving Dialogue Systems for Medical Diagnosis"
+              subtitle="B.Tech Project under Prof. Mausam (July 2024 – May 2025)"
+              description="Developing advanced dialogue systems for medical diagnosis using Bayesian Networks to model causal disease-symptom relationships and improve diagnostic accuracy."
+              details={[
+                "Modeled large-scale medical text data as Bayesian Networks to capture causal disease–symptom relationships",
+                "Designed novel inference techniques for Bayesian Networks",
+                "Improved performance over standard RAG (Retrieval-Augmented Generation) systems",
+                "Created an intelligent dialogue system for medical diagnosis",
+                "Working on probabilistic reasoning for accurate disease prediction"
+              ]}
+              technologies={["Python", "Bayesian Networks", "NLP", "RAG Systems", "Medical AI", "Dialogue Systems"]}
+              color="purple"
+              githubLink="https://github.com/8have5h"
+            />
+
+            <ProjectCard
               title="ARC-AGI Challenge Exploration"
               subtitle="Tackling Abstract Reasoning via ML & Program Synthesis"
               description="Exploring solutions for the Abstraction and Reasoning Corpus (ARC) challenge, aiming to build AI with human-like fluid intelligence. This involves understanding core patterns from few examples."
@@ -443,17 +629,17 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             />
 
             <ProjectCard
-              title="AI Game Agent"
-              subtitle="Intelligent Bot for Alternating Markov Games"
-              description="I developed an advanced AI agent capable of playing strategic board games like Hex and Chess. It uses Depth-limited Minimax with heuristics trained via Reinforcement Learning."
+              title="Expert Iteration for Alternating Markov Games"
+              subtitle="Independent Project (Aug 2023 - Oct 2023)"
+              description="Implemented Expert Iteration Algorithm using Monte Carlo Tree Search for strategic board games, comparing performance against traditional minimax approaches with custom-trained features."
               details={[
-                "Developed game-specific heuristics for Hex, Chess, Rollerball",
-                "Implemented Deep Q-Networks (DQN) for value approximation",
-                "Integrated Monte Carlo Tree Search (MCTS) to enhance DQN",
-                "Built a self-play framework for continuous improvement",
-                "Analyzed trade-offs between search algorithms and heuristics"
+                "Implemented Expert Iteration Algorithm using Monte Carlo Tree Search (MCTS) in Hex game",
+                "Tested on games like Rollerball and chess variations",
+                "Compared performance to Iterative Deepening Minimax algorithm",
+                "Created custom features and trained weights using imitation learning",
+                "Analyzed trade-offs between search algorithms and learned heuristics"
               ]}
-              technologies={["Python", "TensorFlow", "Reinforcement Learning", "MCTS", "Minimax"]}
+              technologies={["Python", "MCTS", "Reinforcement Learning", "Minimax", "Imitation Learning", "Game AI"]}
               color="blue"
               githubLink="https://github.com/8have5h/COL333-Assignment-1"
             />
@@ -521,6 +707,38 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
               color="red"
               githubLink="https://github.com/8have5h/COL774-Project"
             />
+
+            <ProjectCard
+              title="Lexer, Parser & Interpreter for Rational Numbers"
+              subtitle="COL226 under Prof. S. Arun Kumar (April 2023)"
+              description="Built a complete language implementation supporting rational numbers, BigInt operations, with custom lexer, parser, and interpreter from scratch."
+              details={[
+                "Built custom BigInt and Rational module in SML",
+                "Used ML-Lex and ML-Yacc to generate Abstract Syntax Tree (AST)",
+                "Implemented static scoping with various maps",
+                "Built an evaluator that performs DFS on AST",
+                "Support for variables, conditionals, loops, recursion, BigInt, rational & logical operations, and I/O"
+              ]}
+              technologies={["SML", "ML-Lex", "ML-Yacc", "Compiler Design", "Functional Programming", "AST"]}
+              color="purple"
+              githubLink="https://github.com/8have5h"
+            />
+
+            <ProjectCard
+              title="Custom Multi-Threading Library"
+              subtitle="COP290 under Prof. Abhilash Jindal (Feb 2023 - March 2023)"
+              description="Developed a custom multithreading library in C using ucontext, simulating parallel thread execution and comparing performance with pthread library."
+              details={[
+                "Used ucontext library in C to build custom multithreading library",
+                "Simulated and tested parallel thread execution",
+                "Implemented word count application using HashMap across multiple files",
+                "Compared performance to built-in pthread library",
+                "Varied factors like word frequency and file count for performance analysis"
+              ]}
+              technologies={["C", "ucontext", "Multithreading", "Systems Programming", "Performance Analysis", "pthread"]}
+              color="green"
+              githubLink="https://github.com/8have5h"
+            />
           </TabsContent>
 
           {/* Experience Tab Content */}
@@ -534,21 +752,26 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                  <div className="relative">
                    <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-yellow-500 border-4 border-gray-900 animate-pulse"></div>
                    <div className="mb-4 flex items-center gap-2">
-                    <span className="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">Summer 2025 (Upcoming)</span>
+                    <span className="bg-yellow-900/30 text-yellow-300 px-3 py-1 rounded-full text-sm font-medium">May 2025 – July 2025 (Upcoming)</span>
                     <CalendarClock className="w-4 h-4 text-yellow-400"/>
                   </div>
                    <h3 className="text-2xl font-bold mb-1">Quantitative Researcher Intern</h3>
-                   <p className="text-lg text-gray-400 mb-4">Ebullient Securities</p>
+                   <p className="text-lg text-gray-400 mb-4">Ebullient Securities, Gurugram</p>
                    <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                      <p className="mb-4 text-gray-300">
-                       Excited for my upcoming Quant Research internship! I&apos;ll be diving into the world of high-frequency trading (HFT), applying my analytical and programming skills to develop and test trading strategies. Eager to learn from the team at Ebullient! {/* Corrected: &apos; -> &apos; */}
+                       Upcoming quantitative research internship focusing on algorithmic trading and alpha generation for equity markets.
                      </p>
+                     <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm mb-4">
+                       <li>Building and back-testing alpha signals for short-term equity directionality from equities and futures</li>
+                       <li>Automating alpha-generation pipeline using LLMs with custom evaluation loops for iterative refinement</li>
+                       <li>Developing quantitative strategies for high-frequency trading</li>
+                     </ul>
                      <div className="flex flex-wrap gap-2 mt-6">
                        <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Quantitative Finance</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">HFT</Badge>
+                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Alpha Generation</Badge>
+                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">LLMs</Badge>
                        <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Python</Badge>
-                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">C++</Badge>
-                        <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Data Analysis</Badge>
+                       <Badge className="bg-yellow-900/30 text-yellow-300 border-yellow-500">Trading Strategies</Badge>
                      </div>
                    </div>
                  </div>
@@ -558,52 +781,99 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <div className="mb-4">
                     <span className="bg-blue-900/30 text-blue-300 px-3 py-1 rounded-full text-sm font-medium">May 2024 - July 2024</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Verification Engineer Intern</h3>
-                  <p className="text-lg text-gray-400 mb-4">CompilerAI Labs Private Limited, New Delhi</p>
+                  <h3 className="text-2xl font-bold mb-1">Software/Research Engineer Intern</h3>
+                  <p className="text-lg text-gray-400 mb-4">Compiler AI Labs Private Limited, New Delhi</p>
                   <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                     <p className="mb-4 text-gray-300">
-                      During my internship, I worked on implementing formal verification techniques for the Clang compiler, focusing on MISRA C rules and code equivalence checking.
+                      Worked on implementing formal verification techniques for the Clang compiler, focusing on MISRA C static analysis rules and code equivalence checking.
                     </p>
                     <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
-                      <li>Implemented MISRA C rules at the Preprocessor, AST, and LLVM IR levels.</li>
-                      <li>Developed rules for an Equivalence Checker comparing source code and executable.</li>
-                      <li>Collaborated with the team, analyzing the Clang codebase and using Git.</li>
+                      <li>Implemented MISRA C static analysis rules within Clang compiler across Preprocessor, AST, and LLVM IR stages</li>
+                      <li>Enhanced Equivalence Checker tool for formal verification of compiled executable code against C source code</li>
+                      <li>Collaborated with the team, analyzing the Clang codebase and using Git for version control</li>
+                      <li>Worked on compiler optimization and static analysis techniques</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
                       <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">C++</Badge>
                       <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">LLVM</Badge>
                       <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">Clang</Badge>
                       <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">Formal Verification</Badge>
+                      <Badge className="bg-blue-900/30 text-blue-300 border-blue-500">MISRA C</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-purple-500 border-4 border-gray-900"></div>
                   <div className="mb-4">
-                    <span className="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">June 2022 - May 2023</span>
+                    <span className="bg-purple-900/30 text-purple-300 px-3 py-1 rounded-full text-sm font-medium">2025</span>
                   </div>
-                  <h3 className="text-2xl font-bold mb-1">Technical Executive</h3>
-                  <p className="text-lg text-gray-400 mb-4">Economics Club, CAIC, IIT Delhi</p>
+                  <h3 className="text-2xl font-bold mb-1">Teaching Assistant - Artificial Intelligence</h3>
+                  <p className="text-lg text-gray-400 mb-4">COL333 under Prof. Mausam, IIT Delhi</p>
                   <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
                     <p className="mb-4 text-gray-300">
-                      I led the technical development for the Economics Club website, creating a platform for event management and competitions.
+                      Currently serving as Teaching Assistant for the AI course, helping students understand core AI concepts.
                     </p>
                     <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
-                      <li>Designed and developed the web app using React.js.</li>
-                      <li>Implemented event management, registration, and payment features.</li>
-                      <li>Created an admin dashboard for content management.</li>
+                      <li>Designed quizzes and assignments for COL333 (Artificial Intelligence)</li>
+                      <li>Conducted doubt sessions and mentored students on AI concepts</li>
+                      <li>Evaluated student projects and provided feedback</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">React.js</Badge>
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">JavaScript</Badge>
-                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">Web Development</Badge>
+                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">Teaching</Badge>
+                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">AI</Badge>
+                      <Badge className="bg-purple-900/30 text-purple-300 border-purple-500">Mentoring</Badge>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-indigo-500 border-4 border-gray-900"></div>
+                  <div className="mb-4">
+                    <span className="bg-indigo-900/30 text-indigo-300 px-3 py-1 rounded-full text-sm font-medium">2024</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1">Research & Competition Lead</h3>
+                  <p className="text-lg text-gray-400 mb-4">Various Initiatives, IIT Delhi</p>
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
+                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                      <li><strong>ML in Astronomy Workshop:</strong> Built LSTM-Attention models on light curves for astronomical object classification</li>
+                      <li><strong>ARIES Research Team Member:</strong> Conducted NLP sessions and contributed to multiple industry research projects</li>
+                      <li><strong>Inter IIT Tech Team Lead (Adobe):</strong> Led team for Adobe Research Problem Statement; designed solution for artifacts detection in AI-generated images</li>
+                      <li><strong>Tower Research Limestone Challenge:</strong> Achieved Top 50 selection twice in data science competition</li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Research</Badge>
+                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Competition</Badge>
+                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">Leadership</Badge>
+                      <Badge className="bg-indigo-900/30 text-indigo-300 border-indigo-500">ML</Badge>
                     </div>
                   </div>
                 </div>
                 <div className="relative">
                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-green-500 border-4 border-gray-900"></div>
                   <div className="mb-4">
-                    <span className="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm font-medium">June 2022 - May 2023</span>
+                    <span className="bg-green-900/30 text-green-300 px-3 py-1 rounded-full text-sm font-medium">2023</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1">Academic Mentor</h3>
+                  <p className="text-lg text-gray-400 mb-4">MTL100 (Calculus), IIT Delhi</p>
+                  <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
+                    <p className="mb-4 text-gray-300">
+                      Mentored 150+ freshers for the Calculus course, conducting regular doubt sessions in hybrid mode.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
+                      <li>Conducted doubt clearing sessions for MTL100 (Calculus)</li>
+                      <li>Mentored over 150 freshers in understanding complex mathematical concepts</li>
+                      <li>Organized both online and offline sessions for accessibility</li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Mentoring</Badge>
+                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Mathematics</Badge>
+                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Teaching</Badge>
+                    </div>
+                  </div>
+                </div>
+                <div className="relative">
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-orange-500 border-4 border-gray-900"></div>
+                  <div className="mb-4">
+                    <span className="bg-orange-900/30 text-orange-300 px-3 py-1 rounded-full text-sm font-medium">June 2022 - May 2023</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-1">Technical Engineer</h3>
                   <p className="text-lg text-gray-400 mb-4">Infinity Hyperloop, CAIC, IIT Delhi</p>
@@ -612,15 +882,15 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                      As part of the student hyperloop team, I contributed to developing control systems for our pod prototype.
                     </p>
                     <ul className="list-disc pl-5 space-y-2 text-gray-300 text-sm">
-                      <li>Designed a PyQt5 interface for pod control and real-time monitoring.</li>
-                      <li>Implemented sensor input processing and STM microcontroller communication via CAN.</li>
-                      <li>Developed data visualization components.</li>
+                      <li>Designed a PyQt5 interface for pod control and real-time monitoring</li>
+                      <li>Implemented sensor input processing and STM microcontroller communication via CAN</li>
+                      <li>Developed data visualization components for telemetry data</li>
                     </ul>
                     <div className="flex flex-wrap gap-2 mt-6">
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Python</Badge>
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">PyQt5</Badge>
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">CAN Protocol</Badge>
-                      <Badge className="bg-green-900/30 text-green-300 border-green-500">Embedded Systems</Badge>
+                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">Python</Badge>
+                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">PyQt5</Badge>
+                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">CAN Protocol</Badge>
+                      <Badge className="bg-orange-900/30 text-orange-300 border-orange-500">Embedded Systems</Badge>
                     </div>
                   </div>
                 </div>
@@ -639,11 +909,12 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <Award className="mr-2 text-yellow-500" /> Academic Milestones
                 </h3>
                 <div className="space-y-4">
-                  <AchievementCard title="JEE Advanced 2021" description="Achieved All India Rank 116 (Top ~0.06%)" icon="🏆" color="yellow"/>
-                  <AchievementCard title="JEE Mains 2021" description="Achieved All India Rank 493 (100 Percentile in Maths)" icon="🏅" color="yellow"/>
-                  <AchievementCard title="KVPY Fellowship 2021" description="Awarded Fellowship (AIR 305)" icon="🔬" color="yellow"/>
-                  <AchievementCard title="NTSE Scholar 2019" description="National Talent Search Examination Scholar" icon="🎓" color="yellow"/>
-                  <AchievementCard title="INMO Qualifier 2019" description="Qualified for Indian National Mathematics Olympiad" icon="🧮" color="yellow"/>
+                  <AchievementCard title="JEE Advanced 2021" description="Achieved All India Rank 116 among 200,000 students (Top ~0.06%)" icon="🏆" color="yellow"/>
+                  <AchievementCard title="JEE Mains 2021" description="Achieved All India Rank 493 among 1 million+ students (100 Percentile in Maths)" icon="🏅" color="yellow"/>
+                  <AchievementCard title="KVPY Fellowship 2021" description="Awarded Prestigious Fellowship by IISc (AIR 302)" icon="🔬" color="yellow"/>
+                  <AchievementCard title="NTSE Scholar 2019" description="Among top 2000 students nationwide, NCERT Scholarship" icon="🎓" color="yellow"/>
+                  <AchievementCard title="INMO Qualifier 2019" description="Among top 300 students to qualify for Indian National Mathematics Olympiad" icon="🧮" color="yellow"/>
+                  <AchievementCard title="Tower Research Challenge 2024" description="Achieved Top 50 selection twice in Limestone Data Challenge" icon="📊" color="blue"/>
                 </div>
               </div>
               <div className="bg-gray-800/50 border border-gray-700 rounded-lg p-6">
@@ -675,12 +946,12 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                 </h3>
                 <div className="space-y-4">
                   <div className="bg-gray-700/30 p-4 rounded-lg border border-gray-600/50">
-                    <h4 className="font-semibold text-green-300 mb-1">Enactus IITD Career Platform</h4>
-                    <p className="text-gray-300 text-sm">As a backend developer, I helped build a career upskilling platform using Django & MySQL (2023).</p>
+                    <h4 className="font-semibold text-green-300 mb-1">Enactus IITD Career Platform (2023)</h4>
+                    <p className="text-gray-300 text-sm">Backend developer for career upskilling platform using Django & MySQL, enabling skill development and job matching.</p>
                   </div>
                   <div className="bg-gray-700/30 p-4 rounded-lg border border-gray-600/50">
-                    <h4 className="font-semibold text-green-300 mb-1">Harvard CS50x Course</h4>
-                    <p className="text-gray-300 text-sm">Completed Harvard&apos;s foundational CS course covering C, Python, web development, and security concepts (2021). {/* Corrected: &apos; -> &apos; */} </p>
+                    <h4 className="font-semibold text-green-300 mb-1">Harvard CS50x Course (2021)</h4>
+                    <p className="text-gray-300 text-sm">Completed Harvard&apos;s foundational CS course covering C, Python, data structures, algorithms, web development, and security concepts. {/* Corrected: &apos; -> &apos; */}</p>
                   </div>
                 </div>
               </div>
