@@ -5,7 +5,7 @@ import React, { useState, useEffect } from "react"; // Removed unused CSSPropert
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Terminal, Code, Rocket, Award, Briefcase, User, Github, Linkedin, Mail, ExternalLink, BrainCircuit, BookOpen, CalendarClock } from "lucide-react";
+import { Terminal, Code, Rocket, Award, Briefcase, User, Github, Linkedin, Mail, ExternalLink, BrainCircuit, BookOpen } from "lucide-react";
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 
@@ -759,30 +759,33 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             </h2>
             <div className="space-y-12 max-w-5xl mx-auto">
               <div className="relative border-l-2 border-gray-300 pl-8 ml-4 space-y-12">
-                 {/* Upcoming Internship */}
+                 {/* QR Internship - Completed with Full-Time Offer */}
                  <div className="relative">
-                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-amber-500 border-4 border-white shadow-lg animate-pulse"></div>
-                   <div className="mb-4 flex items-center gap-2">
-                    <span className="bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2025 – July 2025 (Upcoming)</span>
-                    <CalendarClock className="w-4 h-4 text-amber-600"/>
+                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-emerald-500 border-4 border-white shadow-lg"></div>
+                   <div className="mb-4 flex flex-wrap items-center gap-2">
+                    <span className="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2025 – July 2025</span>
+                    <span className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-amber-300">✨ Full-Time Offer Received</span>
                   </div>
-                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Quantitative Researcher Intern</h3>
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Quantitative Research Intern</h3>
                    <p className="text-lg text-gray-600 mb-4 font-medium">Ebullient Securities, Gurugram</p>
-                   <div className="bg-gradient-to-br from-amber-50 to-white border border-amber-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                   <div className="bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-300 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                      <p className="mb-4 text-gray-700 leading-relaxed">
-                       Upcoming quantitative research internship focusing on algorithmic trading and alpha generation for equity markets.
+                       Completed quantitative research internship focusing on algorithmic trading and alpha generation for equity markets. <strong className="text-emerald-700">Successfully converted to full-time offer.</strong>
                      </p>
                      <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm mb-4">
-                       <li>Building and back-testing alpha signals for short-term equity directionality from equities and futures</li>
-                       <li>Automating alpha-generation pipeline using LLMs with custom evaluation loops for iterative refinement</li>
-                       <li>Developing quantitative strategies for high-frequency trading</li>
+                       <li>Researched high-frequency market microstructure patterns in the top 500 most actively traded equities and futures to extract actionable insights</li>
+                       <li>Developed alpha signals to predict short-term equity price direction, supporting enhancements to market making strategies</li>
+                       <li>Automated the alpha signal generation pipeline using LLMs, incorporating iterative refinement based on feedback from a custom evaluation framework</li>
+                       <li><strong className="text-emerald-800">Designed from scratch and live-tested a strategy in C++ using top-performing alphas, delivering up to 40% annualized returns in simulation with a Calmar ratio of 12</strong></li>
                      </ul>
                      <div className="flex flex-wrap gap-2 mt-6">
-                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Quantitative Finance</Badge>
-                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Alpha Generation</Badge>
-                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">LLMs</Badge>
-                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Python</Badge>
-                       <Badge className="bg-amber-100 text-amber-800 border-amber-300">Trading Strategies</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Quantitative Research</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Python</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">C++</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">Alpha Signals</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">LLMs</Badge>
+                       <Badge className="bg-emerald-100 text-emerald-800 border-emerald-300">HFT</Badge>
+                       <Badge className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 border-amber-300 font-bold">Full-Time Offer</Badge>
                      </div>
                    </div>
                  </div>
