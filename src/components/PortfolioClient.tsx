@@ -403,12 +403,12 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-700 mb-4 font-medium">
-              Computer Science & Engineering @ IIT Delhi
+              CS & Engineering (B.Tech + M.Tech) @ IIT Delhi | AI/ML Researcher
             </p>
 
             <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-10 leading-relaxed">
-              Fifth-year student passionate about AI, Machine Learning, and building intelligent systems.
-              Researching Bayesian Networks, Game AI, and Abstract Reasoning.
+              Fifth-year student and researcher passionate about AI Safety, Machine Learning, and Mechanistic Interpretability.
+              Currently interning at Microsoft Research on conversational medical agents. JEE Advanced AIR 116.
             </p>
 
             {/* Social Links - Redesigned */}
@@ -434,14 +434,17 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             </div>
 
             {/* Skills Tags - Modern Design */}
-            <div className="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+            <div className="flex flex-wrap justify-center gap-3 max-w-4xl mx-auto">
               <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-blue-700 rounded-full text-sm font-medium shadow-md border border-blue-100">Machine Learning</span>
               <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-purple-700 rounded-full text-sm font-medium shadow-md border border-purple-100">Deep Learning</span>
-              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-emerald-700 rounded-full text-sm font-medium shadow-md border border-emerald-100">Python</span>
-              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-amber-700 rounded-full text-sm font-medium shadow-md border border-amber-100">C++</span>
-              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-rose-700 rounded-full text-sm font-medium shadow-md border border-rose-100">NLP</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-emerald-700 rounded-full text-sm font-medium shadow-md border border-emerald-100">LLMs</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-amber-700 rounded-full text-sm font-medium shadow-md border border-amber-100">Python</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-rose-700 rounded-full text-sm font-medium shadow-md border border-rose-100">C++</span>
               <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-indigo-700 rounded-full text-sm font-medium shadow-md border border-indigo-100">AI Safety</span>
-              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-cyan-700 rounded-full text-sm font-medium shadow-md border border-cyan-100">Bayesian Networks</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-cyan-700 rounded-full text-sm font-medium shadow-md border border-cyan-100">NLP</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-pink-700 rounded-full text-sm font-medium shadow-md border border-pink-100">Computer Vision</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-teal-700 rounded-full text-sm font-medium shadow-md border border-teal-100">PyTorch</span>
+              <span className="px-4 py-2 bg-white/80 backdrop-blur-sm text-orange-700 rounded-full text-sm font-medium shadow-md border border-orange-100">TensorFlow</span>
             </div>
           </div>
         </div>
@@ -496,13 +499,13 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <div className="text-center md:text-left">
                     <h3 className="text-3xl md:text-4xl font-bold mb-3 bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">Bhavesh Gurnani</h3>
                     <p className="text-gray-700 mb-5 text-lg leading-relaxed">
-                      I&apos;m a passionate Computer Science student at IIT Delhi, driven by a strong foundation in mathematics and programming.
-                      I love exploring the frontiers of AI, particularly the intersections of machine learning, computer vision, and natural language processing.
+                      I&apos;m a passionate Computer Science student at IIT Delhi, driven by a strong foundation in competitive programming, mathematics, and cutting-edge AI research. 
+                      My focus is on understanding how large language models work through mechanistic interpretability and building safer, more aligned AI systems.
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                       <a href="mailto:bhavesh.gurnani2003@gmail.com" className="inline-flex items-center group">
+                       <a href="mailto:cs5210594@iitd.ac.in" className="inline-flex items-center group">
                          <Badge variant="outline" className="bg-blue-50 border-blue-300 text-blue-700 group-hover:bg-blue-100 transition-colors">
-                           <Mail className="w-3 h-3 mr-1" /> Email Me
+                           <Mail className="w-3 h-3 mr-1" /> Contact
                          </Badge>
                        </a>
                        <a href="https://github.com/8have5h" target="_blank" rel="noopener noreferrer" className="inline-flex items-center group">
@@ -520,16 +523,16 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                 </div>
                 <div className="prose max-w-none text-gray-700 prose-p:leading-relaxed prose-headings:text-gray-900 prose-strong:font-bold">
                    <p className="text-lg">
-                    Currently, I&apos;m pursuing a dual degree (B.Tech + M.Tech) in Computer Science & Engineering at IIT Delhi. My academic journey began strong, achieving <strong className="text-amber-700">AIR 116 in JEE Advanced</strong>, which opened the doors to this incredible institution.
+                    Currently, I&apos;m pursuing a dual degree (B.Tech + M.Tech) in Computer Science &amp; Engineering at IIT Delhi, with a CGPA of 8.52/10. My academic journey began exceptionally strong, achieving <strong className="text-amber-700">AIR 116 in JEE Advanced 2021</strong> (top 0.06%), which opened the doors to this incredible institution.
                   </p>
                   <p className="text-lg">
-                    My core fascination lies within <strong className="text-blue-700">Machine Learning</strong> and <strong className="text-purple-700">Deep Learning</strong>. I&apos;m particularly interested in understanding how these complex models work, which leads me to the field of <strong className="text-indigo-700">Mechanistic Interpretability</strong> – trying to reverse engineer neural networks to ensure AI systems are safe and aligned with human values (<strong className="text-indigo-700">AI Safety</strong>).
+                    My core fascination lies within <strong className="text-blue-700">Machine Learning</strong>, <strong className="text-purple-700">Deep Learning</strong>, and <strong className="text-indigo-700">Large Language Models</strong>. I&apos;m particularly driven by understanding how these complex models work, which led me to the field of <strong className="text-indigo-700">Mechanistic Interpretability</strong> &ndash; trying to reverse engineer neural networks to ensure AI systems are safe, aligned, and interpretable.
                   </p>
                   <p className="text-lg">
-                    I&apos;m actively working on challenging problems like the <strong className="text-emerald-700">ARC-AGI challenge</strong>, exploring techniques from program synthesis to model fine-tuning. I also have a strong background in <strong className="text-amber-700">Competitive Programming</strong> which sharpens my algorithmic thinking.
+                    Currently, I&apos;m interning at <strong className="text-emerald-700">Microsoft Research</strong> developing conversational agents for medical diagnosis. I&apos;m also working on research with <strong className="text-blue-700">Prof. Mausam at IIT Delhi</strong> on dialogue systems and Bayesian Networks for clinical reasoning. My research interests span <strong className="text-purple-700">Bayesian Networks</strong>, <strong className="text-cyan-700">Diffusion Models</strong>, <strong className="text-pink-700">RL</strong>, and <strong className="text-amber-700">Program Synthesis</strong>.
                   </p>
                   <p className="text-lg">
-                    I&apos;m always eager to learn, collaborate, and tackle complex problems. If you&apos;re interested in similar areas, feel free to reach out!
+                    I have significant industry experience with internships at <strong className="text-emerald-700">Neosigma</strong> (LLM post-training), <strong className="text-blue-700">NUS AI Security Lab</strong> (adversarial attacks on LLMs), and <strong className="text-orange-700">Ebullient Securities</strong> (quantitative trading with LLMs, achieving 40% annualized returns). I&apos;m always eager to learn, collaborate, and tackle challenging problems at the frontier of AI.
                   </p>
                 </div>
               </div>
@@ -542,26 +545,34 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                     <div>
                       <h4 className="font-bold text-blue-800 mb-3 text-sm uppercase tracking-wider">Programming Languages</h4>
                       <div className="flex flex-wrap gap-2">
-                        {["Python", "C++", "C", "Java", "JavaScript", "SML", "Prolog", "VHDL", "ml-lex", "ml-yacc"].map((skill, i) => (
+                        {["Python", "C++", "Java", "OCaml", "C", "JavaScript", "SQL"].map((skill, i) => (
                            <Badge key={i} variant="secondary" className="bg-blue-100 text-blue-700 border border-blue-300 font-medium">{skill}</Badge>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wider">Frameworks & Libraries</h4>
+                      <h4 className="font-bold text-emerald-800 mb-3 text-sm uppercase tracking-wider">ML/AI Frameworks & Libraries</h4>
                       <div className="flex flex-wrap gap-2">
-                        {["PyTorch", "TensorFlow", "Keras", "Scikit-learn", "NumPy", "Pandas", "OpenCV", "Django", "Flask", "React", "LLVM"].map((skill, i) => (
+                        {["PyTorch", "TensorFlow", "Hugging Face", "PEFT", "LoRA", "Scikit-learn", "NumPy", "Pandas", "OpenCV", "LLVM", "Clang"].map((skill, i) => (
                           <Badge key={i} variant="secondary" className="bg-emerald-100 text-emerald-700 border border-emerald-300 font-medium">{skill}</Badge>
                         ))}
                       </div>
                     </div>
                     <div>
-                       <h4 className="font-bold text-purple-800 mb-3 text-sm uppercase tracking-wider">Tools & Platforms</h4>
-                       <div className="flex flex-wrap gap-2">
-                         {["Git", "Docker", "Linux", "HPC", "VS Code", "Jupyter"].map((skill, i) => (
-                            <Badge key={i} variant="secondary" className="bg-purple-100 text-purple-700 border border-purple-300 font-medium">{skill}</Badge>
-                         ))}
-                       </div>
+                      <h4 className="font-bold text-purple-800 mb-3 text-sm uppercase tracking-wider">Tools & Platforms</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {["AWS", "Docker", "Git", "Linux", "HPC", "Jupyter", "VS Code", "React.js"].map((skill, i) => (
+                          <Badge key={i} variant="secondary" className="bg-purple-100 text-purple-700 border border-purple-300 font-medium">{skill}</Badge>
+                        ))}
+                      </div>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-amber-800 mb-3 text-sm uppercase tracking-wider">AI/ML Specializations</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {["LLMs", "Bayesian Networks", "Diffusion Models", "Transformers", "BERT", "RL", "DQN", "Computer Vision", "NLP", "Static Analysis"].map((skill, i) => (
+                          <Badge key={i} variant="secondary" className="bg-amber-100 text-amber-700 border border-amber-300 font-medium">{skill}</Badge>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -759,14 +770,101 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
             </h2>
             <div className="space-y-12 max-w-5xl mx-auto">
               <div className="relative border-l-2 border-gray-300 pl-8 ml-4 space-y-12">
+                 {/* Microsoft Research - Current */}
+                 <div className="relative">
+                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-blue-600 border-4 border-white shadow-lg"></div>
+                   <div className="mb-4 flex flex-wrap items-center gap-2">
+                    <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">Feb 2026 – Present</span>
+                    <span className="bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-blue-300">🔬 Current</span>
+                  </div>
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Research Intern - Conversational Agents</h3>
+                   <p className="text-lg text-gray-600 mb-4 font-medium">Microsoft Research</p>
+                   <div className="bg-gradient-to-br from-blue-50 to-white border-2 border-blue-300 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                     <p className="mb-4 text-gray-700 leading-relaxed">
+                       Developing conversational agents for medical diagnosis via multi-turn dialogue modeling and clinical reasoning. Working on integrating LLMs with structured medical knowledge.
+                     </p>
+                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm mb-4">
+                       <li>Building dialogue systems for medical diagnosis using multi-turn conversations</li>
+                       <li>Implementing clinical reasoning mechanisms with LLMs</li>
+                       <li>Designing evaluation metrics for dialogue quality and diagnostic accuracy</li>
+                       <li>Research on conversational AI for healthcare applications</li>
+                     </ul>
+                     <div className="flex flex-wrap gap-2 mt-6">
+                       <Badge className="bg-blue-100 text-blue-800 border-blue-300">LLMs</Badge>
+                       <Badge className="bg-blue-100 text-blue-800 border-blue-300">Dialogue Systems</Badge>
+                       <Badge className="bg-blue-100 text-blue-800 border-blue-300">Medical AI</Badge>
+                       <Badge className="bg-blue-100 text-blue-800 border-blue-300">Python</Badge>
+                       <Badge className="bg-blue-100 text-blue-800 border-blue-300">PyTorch</Badge>
+                       <Badge className="bg-gradient-to-r from-blue-100 to-cyan-100 text-blue-900 border-blue-300 font-bold">MSR</Badge>
+                     </div>
+                   </div>
+                 </div>
+
+                 {/* NUS AI Security - Current */}
+                 <div className="relative">
+                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-purple-600 border-4 border-white shadow-lg"></div>
+                   <div className="mb-4 flex flex-wrap items-center gap-2">
+                    <span className="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">Dec 2025 – Present</span>
+                    <span className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-purple-300">🔒 Security</span>
+                  </div>
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">AI Security Intern</h3>
+                   <p className="text-lg text-gray-600 mb-4 font-medium">National University of Singapore — Prof. Prateek Saxena, KISP Lab</p>
+                   <div className="bg-gradient-to-br from-purple-50 to-white border-2 border-purple-300 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                     <p className="mb-4 text-gray-700 leading-relaxed">
+                       Working on adversarial attacks and security vulnerabilities in large language models, focusing on reasoning-token generation attacks.
+                     </p>
+                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm mb-4">
+                       <li>Extended OverThink with filtering-evasive slowdown attack on LLMs</li>
+                       <li>Showed attack increases reasoning-token generation without changing outputs</li>
+                       <li>Revealed compute-amplification risks in LLM reasoning</li>
+                       <li>Research on LLM robustness and adversarial resilience</li>
+                     </ul>
+                     <div className="flex flex-wrap gap-2 mt-6">
+                       <Badge className="bg-purple-100 text-purple-800 border-purple-300">AI Security</Badge>
+                       <Badge className="bg-purple-100 text-purple-800 border-purple-300">LLMs</Badge>
+                       <Badge className="bg-purple-100 text-purple-800 border-purple-300">Adversarial</Badge>
+                       <Badge className="bg-purple-100 text-purple-800 border-purple-300">Python</Badge>
+                       <Badge className="bg-gradient-to-r from-purple-100 to-pink-100 text-purple-900 border-purple-300 font-bold">NUS</Badge>
+                     </div>
+                   </div>
+                 </div>
+
+                 {/* Neosigma Post-Training */}
+                 <div className="relative">
+                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-cyan-500 border-4 border-white shadow-lg"></div>
+                   <div className="mb-4">
+                    <span className="bg-cyan-100 text-cyan-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">Dec 2025 – Jan 2026</span>
+                  </div>
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Post-Training Research Intern</h3>
+                   <p className="text-lg text-gray-600 mb-4 font-medium">Neosigma (Remote)</p>
+                   <div className="bg-gradient-to-br from-cyan-50 to-white border border-cyan-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                     <p className="mb-4 text-gray-700 leading-relaxed">
+                       Improved 128k-context agentic LLM post-training through novel techniques and scalable infrastructure setup.
+                     </p>
+                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm mb-4">
+                       <li>Improved 128k-context agentic LLM post-training by tool-call truncation during SFT</li>
+                       <li>Set up AWS multi-node training infrastructure for scalable SFT, DPO, and GRPO</li>
+                       <li>Implemented training pipeline with verl framework at 128k context</li>
+                       <li>Optimized for both computational efficiency and model performance</li>
+                     </ul>
+                     <div className="flex flex-wrap gap-2 mt-6">
+                       <Badge className="bg-cyan-100 text-cyan-800 border-cyan-300">LLMs</Badge>
+                       <Badge className="bg-cyan-100 text-cyan-800 border-cyan-300">Post-Training</Badge>
+                       <Badge className="bg-cyan-100 text-cyan-800 border-cyan-300">AWS</Badge>
+                       <Badge className="bg-cyan-100 text-cyan-800 border-cyan-300">verl</Badge>
+                       <Badge className="bg-cyan-100 text-cyan-800 border-cyan-300">SFT/DPO/GRPO</Badge>
+                     </div>
+                   </div>
+                 </div>
+
                  {/* QR Internship - Completed with Full-Time Offer */}
                  <div className="relative">
                    <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-emerald-500 border-4 border-white shadow-lg"></div>
                    <div className="mb-4 flex flex-wrap items-center gap-2">
                     <span className="bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2025 – July 2025</span>
-                    <span className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-amber-300">✨ Full-Time Offer Received</span>
+                    <span className="bg-gradient-to-r from-amber-100 to-yellow-100 text-amber-900 px-3 py-1 rounded-full text-xs font-bold shadow-sm border border-amber-300">✨ Full-Time Offer</span>
                   </div>
-                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Quantitative Research Intern</h3>
+                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Quantitative Researcher Intern</h3>
                    <p className="text-lg text-gray-600 mb-4 font-medium">Ebullient Securities, Gurugram</p>
                    <div className="bg-gradient-to-br from-emerald-50 to-white border-2 border-emerald-300 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                      <p className="mb-4 text-gray-700 leading-relaxed">
@@ -789,14 +887,16 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                      </div>
                    </div>
                  </div>
-                 {/* Past Experiences */}
+
+                 {/* Compiler AI Labs */}
                 <div className="relative">
                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-blue-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
                     <span className="bg-blue-100 text-blue-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">May 2024 - July 2024</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Software/Research Engineer Intern</h3>
-                  <p className="text-lg text-gray-600 mb-4 font-medium">Compiler AI Labs Private Limited, New Delhi</p>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">CompilerAI Labs Private Limited, New Delhi</p>
+                  <p className="text-gray-600 text-sm mb-4 font-medium">Supervisor: Prof. Sorav Bansal</p>
                   <div className="bg-gradient-to-br from-blue-50 to-white border border-blue-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                     <p className="mb-4 text-gray-700 leading-relaxed">
                       Worked on implementing formal verification techniques for the Clang compiler, focusing on MISRA C static analysis rules and code equivalence checking.
@@ -816,16 +916,45 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                     </div>
                   </div>
                 </div>
+
+                {/* NLP TA */}
+                <div className="relative">
+                  <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-indigo-500 border-4 border-white shadow-lg"></div>
+                  <div className="mb-4">
+                    <span className="bg-indigo-100 text-indigo-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">Jan 2026 – Present</span>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-1 text-gray-900">Teaching Assistant - Natural Language Processing</h3>
+                  <p className="text-lg text-gray-600 mb-4 font-medium">COL772 under Prof. Mausam, IIT Delhi</p>
+                  <div className="bg-gradient-to-br from-indigo-50 to-white border border-indigo-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
+                    <p className="mb-4 text-gray-700 leading-relaxed">
+                      Currently serving as Teaching Assistant for the NLP course, helping students understand advanced natural language processing concepts.
+                    </p>
+                    <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
+                      <li>Designed assignments and quizzes for COL772 (Natural Language Processing)</li>
+                      <li>Built autograder to evaluate student submissions and provide feedback</li>
+                      <li>Resolved Piazza queries and conducted doubt sessions</li>
+                      <li>Mentored students on NLP techniques and best practices</li>
+                    </ul>
+                    <div className="flex flex-wrap gap-2 mt-6">
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Teaching</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">NLP</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Autograder</Badge>
+                      <Badge className="bg-indigo-100 text-indigo-800 border-indigo-300">Mentoring</Badge>
+                    </div>
+                  </div>
+                </div>
+
+                {/* AI TA */}
                 <div className="relative">
                   <div className="absolute -left-11 top-1 w-6 h-6 rounded-full bg-purple-500 border-4 border-white shadow-lg"></div>
                   <div className="mb-4">
-                    <span className="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">2025</span>
+                    <span className="bg-purple-100 text-purple-800 px-4 py-1.5 rounded-full text-sm font-semibold shadow-sm">Jul 2025 – Dec 2025</span>
                   </div>
                   <h3 className="text-2xl font-bold mb-1 text-gray-900">Teaching Assistant - Artificial Intelligence</h3>
                   <p className="text-lg text-gray-600 mb-4 font-medium">COL333 under Prof. Mausam, IIT Delhi</p>
                   <div className="bg-gradient-to-br from-purple-50 to-white border border-purple-200 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300">
                     <p className="mb-4 text-gray-700 leading-relaxed">
-                      Currently serving as Teaching Assistant for the AI course, helping students understand core AI concepts.
+                      Served as Teaching Assistant for the AI course, helping students understand core AI concepts and implementing course infrastructure.
                     </p>
                     <ul className="list-disc pl-5 space-y-2 text-gray-700 text-sm">
                       <li>Designed quizzes and assignments for COL333 (Artificial Intelligence)</li>
@@ -923,12 +1052,13 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <Award className="mr-2 text-amber-600" /> Academic Milestones
                 </h3>
                 <div className="space-y-4">
-                  <AchievementCard title="JEE Advanced 2021" description="Achieved All India Rank 116 among 200,000 students (Top ~0.06%)" icon="🏆" color="yellow"/>
-                  <AchievementCard title="JEE Mains 2021" description="Achieved All India Rank 493 among 1 million+ students (100 Percentile in Maths)" icon="🏅" color="yellow"/>
-                  <AchievementCard title="KVPY Fellowship 2021" description="Awarded Prestigious Fellowship by IISc (AIR 302)" icon="🔬" color="yellow"/>
-                  <AchievementCard title="NTSE Scholar 2019" description="Among top 2000 students nationwide, NCERT Scholarship" icon="🎓" color="yellow"/>
+                  <AchievementCard title="JEE Advanced 2021" description="Achieved All India Rank 116 among 200,000 candidates (Top ~0.06%)" icon="🏆" color="yellow"/>
+                  <AchievementCard title="JEE Mains 2021" description="Achieved All India Rank 493 among 1+ million candidates; 100 Percentile in Mathematics" icon="🏅" color="yellow"/>
+                  <AchievementCard title="KVPY Fellowship 2020" description="Awarded Prestigious Fellowship by IISc (AIR 305, SA Stream)" icon="🔬" color="yellow"/>
+                  <AchievementCard title="NTSE Scholar 2019" description="Among top 2000 students nationwide (NCERT Scholarship)" icon="🎓" color="yellow"/>
                   <AchievementCard title="INMO Qualifier 2019" description="Among top 300 students to qualify for Indian National Mathematics Olympiad" icon="🧮" color="yellow"/>
-                  <AchievementCard title="Tower Research Challenge 2024" description="Achieved Top 50 selection twice in Limestone Data Challenge" icon="📊" color="blue"/>
+                  <AchievementCard title="Tower Research Limestone Challenge" description="Achieved Top 50 selection twice in competitive data science challenges" icon="📊" color="blue"/>
+                  <AchievementCard title="Inter IIT Tech Meet 2024" description="Led team on Adobe Research problem; built AI-generated image detection & explainability pipeline" icon="🏅" color="blue"/>
                 </div>
               </div>
               <div className="bg-gradient-to-br from-white to-blue-50 border border-gray-200 rounded-2xl p-8 shadow-lg">
@@ -939,33 +1069,45 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                   <div className="border-l-4 border-blue-500 pl-4 py-3 bg-blue-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
                     <div className="flex justify-between items-center mb-1">
                       <h4 className="text-lg font-semibold text-blue-900">Indian Institute of Technology Delhi</h4>
-                      <span className="text-sm text-blue-700 font-bold bg-blue-100 px-2 py-1 rounded">CGPA: 8.5</span>
+                      <span className="text-sm text-blue-700 font-bold bg-blue-100 px-2 py-1 rounded">CGPA: 8.52</span>
                     </div>
                     <p className="text-gray-700 text-sm font-medium">B.Tech + M.Tech (Dual Degree), Computer Science & Engineering</p>
-                    <p className="text-xs text-gray-600 mt-1">2021 - Present</p>
+                    <p className="text-xs text-gray-600 mt-1">2021 - Expected May 2026</p>
                   </div>
                   <div className="border-l-4 border-purple-500 pl-4 py-3 bg-purple-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
-                     <h4 className="text-lg font-semibold text-purple-900">Lord Buddha Public School</h4>
-                     <p className="text-gray-700 text-sm font-medium">Senior Secondary (Class XII), CBSE</p>
-                     <p className="text-xs text-gray-600 mt-1">Completed 2021</p>
+                     <h4 className="text-lg font-semibold text-purple-900">Lord Buddha Public School, Kota</h4>
+                     <p className="text-gray-700 text-sm font-medium">Senior Secondary (Class XII), CBSE - 84%</p>
+                     <p className="text-xs text-gray-600 mt-1">Completed April 2021</p>
                   </div>
                    <div className="border-l-4 border-emerald-500 pl-4 py-3 bg-emerald-50/50 rounded-r-lg hover:shadow-md transition-all duration-200">
-                     <h4 className="text-lg font-semibold text-emerald-900">Lord Buddha Public School</h4>
-                     <p className="text-gray-700 text-sm font-medium">Secondary (Class X), CBSE</p>
-                     <p className="text-xs text-gray-600 mt-1">Completed 2019</p>
+                     <h4 className="text-lg font-semibold text-emerald-900">Lord Buddha Public School, Kota</h4>
+                     <p className="text-gray-700 text-sm font-medium">Secondary (Class X), CBSE - 94%</p>
+                     <p className="text-xs text-gray-600 mt-1">Completed April 2019</p>
                   </div>
                 </div>
                 <h3 className="text-2xl font-bold mb-6 flex items-center text-gray-900">
-                  <Rocket className="mr-2 text-emerald-600" /> Other Activities & Learning
+                  <Rocket className="mr-2 text-emerald-600" /> Other Activities & Leadership
                 </h3>
                 <div className="space-y-4">
                   <div className="bg-gradient-to-r from-emerald-50 to-emerald-100/50 p-4 rounded-lg border border-emerald-200 hover:shadow-md transition-all duration-200">
-                    <h4 className="font-semibold text-emerald-900 mb-2">Enactus IITD Career Platform (2023)</h4>
-                    <p className="text-gray-700 text-sm">Backend developer for career upskilling platform using Django & MySQL, enabling skill development and job matching.</p>
+                    <h4 className="font-semibold text-emerald-900 mb-2">ML in Astronomy Workshop (2024)</h4>
+                    <p className="text-gray-700 text-sm">Conducted session on ML-Astronomy integration; built LSTM-Attention models on light curves for astronomical object classification.</p>
                   </div>
                   <div className="bg-gradient-to-r from-blue-50 to-blue-100/50 p-4 rounded-lg border border-blue-200 hover:shadow-md transition-all duration-200">
-                    <h4 className="font-semibold text-blue-900 mb-2">Harvard CS50x Course (2021)</h4>
-                    <p className="text-gray-700 text-sm">Completed Harvard&apos;s foundational CS course covering C, Python, data structures, algorithms, web development, and security concepts. {/* Corrected: &apos; -> &apos; */}</p>
+                    <h4 className="font-semibold text-blue-900 mb-2">ARIES Research Team Member (2024)</h4>
+                    <p className="text-gray-700 text-sm">Conducted NLP sessions and contributed to multiple industry research projects on computer vision and NLP applications.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-purple-50 to-purple-100/50 p-4 rounded-lg border border-purple-200 hover:shadow-md transition-all duration-200">
+                    <h4 className="font-semibold text-purple-900 mb-2">Academic Mentor (2023)</h4>
+                    <p className="text-gray-700 text-sm">Mentored 150+ freshers for Calculus course (MTL100); conducted regular doubt clearing sessions in hybrid mode.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-orange-50 to-orange-100/50 p-4 rounded-lg border border-orange-200 hover:shadow-md transition-all duration-200">
+                    <h4 className="font-semibold text-orange-900 mb-2">Technical Engineer, Infinity Hyperloop (2022-23)</h4>
+                    <p className="text-gray-700 text-sm">Designed PyQt5 interface for pod control; implemented sensor processing and CAN protocol communication with STM microcontroller.</p>
+                  </div>
+                  <div className="bg-gradient-to-r from-pink-50 to-pink-100/50 p-4 rounded-lg border border-pink-200 hover:shadow-md transition-all duration-200">
+                    <h4 className="font-semibold text-pink-900 mb-2">Enactus IITD Career Platform (2023)</h4>
+                    <p className="text-gray-700 text-sm">Backend developer for career upskilling platform using Django & MySQL, enabling skill development and job matching for students.</p>
                   </div>
                 </div>
               </div>
