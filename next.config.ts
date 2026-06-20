@@ -3,6 +3,7 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   output: 'export', // Enable static export
+  trailingSlash: true, // Emit /news/index.html, /contact/index.html for GitHub Pages
 
   // ** IMPORTANT FOR GITHUB PAGES (If repo name is NOT <username>.github.io) **
   // Replace 'your-repo-name' with the actual name of your GitHub repository
