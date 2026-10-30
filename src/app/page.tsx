@@ -21,7 +21,8 @@ export default function Home() {
             <p>
               Hi! I&apos;m Bhavesh, a <strong>Quantitative Researcher</strong>{" "}
               at Ebullient Securities, where I&apos;ve been working full-time
-              on US options since July 2026. I graduated in May 2026 with a Dual Degree
+              since July 2026 on short-gamma and directional strategies in US
+              options. I graduated in May 2026 with a Dual Degree
               (B.Tech + M.Tech) in{" "}
               <strong>Computer Science &amp; Engineering</strong> from{" "}
               <a
