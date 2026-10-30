@@ -4,7 +4,7 @@
 
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
-\usepackage[margin=0.5in,top=0.4in,bottom=0.3in]{geometry}
+\usepackage[margin=0.5in,top=0.35in,bottom=0.3in]{geometry}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{needspace}
@@ -22,7 +22,7 @@
 \raggedbottom
 
 \titleformat{\section}{\needspace{5\baselineskip}\large\bfseries\color{headblue}}{}{0pt}{\MakeUppercase}[\vspace{1pt}\titlerule]
-\titlespacing*{\section}{0pt}{7pt}{4pt}
+\titlespacing*{\section}{0pt}{5pt}{4pt}
 
 \setlist[itemize,1]{label=\textbullet,leftmargin=16pt,itemsep=0pt,topsep=0pt,parsep=0pt}
 \setlist[itemize,2]{label=--,leftmargin=14pt,itemsep=0pt,topsep=0pt,parsep=0pt}
@@ -118,8 +118,9 @@
   \item \textbf{ProbMedTOD: A Probabilistic Task-Oriented Dialogue System for Patient History Taking}\\
   {\footnotesize\textit{Vishal Vivek Saley, \textbf{Bhavesh Gurnani}, Dinesh Raghu, Mausam}}\dates{NeurIPS 2026}
   \begin{itemize}
-    \item Introduced \textbf{ProbMedTOD}, integrating LLMs with Bayesian Networks for patient history-taking.
-    \item Designed patient simulator and dialogue-level metric; achieved 21-pt MRR gain over baselines.
+    \item Introduced \textbf{ProbMedTOD}, which auto-synthesizes clinical Bayesian Networks from a few clinical notes.
+    \item Integrated BayesNets with SLMs: a BayesNet Agent tracks diagnosis posteriors, a Policy Agent picks questions.
+    \item Outperformed LLM-only and RAG baselines on DDXPlus and MIMIC-IV (21-pt MRR gain), esp.\ for smaller models.
   \end{itemize}
   \item \textbf{Hierarchical Masked Diffusion Language Models}\\
   {\footnotesize\textit{Parul Gupta, Avni Aggarwal, \textbf{Bhavesh Gurnani}, Arnab Kumar Mondal, Dinesh Khandelwal, Dinesh Garg, Parag Singla}}\dates{In Review}
@@ -135,12 +136,12 @@
   \item \proj{Hierarchical Masked Diffusion Language Models}{MTP under Prof.\ Parag Singla}{June 2025 -- May 2026}
   \begin{itemize}
     \item Implemented hierarchical masked-diffusion with staged generation: descriptions $\rightarrow$ comments $\rightarrow$ code tokens.
-    \item Achieved empirical improvements on LLADA for MBPP and HumanEval code-generation benchmarks.
+    \item Achieved empirical improvements on LLADA for MBPP and HumanEval code generation; basis for HMDLM paper.
   \end{itemize}
   \item \proj{Improving Dialogue Systems for Medical Diagnosis}{BTP under Prof.\ Mausam}{July 2024 -- May 2025}
   \begin{itemize}
-    \item Modeled large-scale medical text data as Bayesian Networks to capture causal disease--symptom relationships
-    \item Designed novel inference techniques for Bayesian Networks, improving performance over standard RAG systems
+    \item Synthesized clinical BayesNets from notes via ontology building, structure prediction, and parameter estimation
+    \item Designed BayesNet inference for multi-turn diagnosis, beating RAG baselines; basis for ProbMedTOD (NeurIPS 2026)
   \end{itemize}
 \end{itemize}
 
