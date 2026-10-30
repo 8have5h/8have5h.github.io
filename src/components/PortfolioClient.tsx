@@ -503,7 +503,7 @@ export default function Portfolio() { // Removed explicit : JSX.Element return t
                       My focus is on understanding how large language models work through mechanistic interpretability and building safer, more aligned AI systems.
                     </p>
                     <div className="flex flex-wrap gap-2 justify-center md:justify-start">
-                       <a href="mailto:cs5210594@iitd.ac.in" className="inline-flex items-center group">
+                       <a href="mailto:bhavesh.gurnani2003@gmail.com" className="inline-flex items-center group">
                          <Badge variant="outline" className="bg-blue-50 border-blue-300 text-blue-700 group-hover:bg-blue-100 transition-colors">
                            <Mail className="w-3 h-3 mr-1" /> Contact
                          </Badge>
