@@ -1,0 +1,200 @@
+% Bhavesh Gurnani - CV
+% Build: cd cv && pdflatex cv.tex && cp cv.pdf ../public/cv.pdf
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.5in,top=0.4in,bottom=0.3in]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{needspace}
+\usepackage{enumitem}
+\usepackage{fontawesome5}
+\usepackage[hidelinks]{hyperref}
+
+\definecolor{headblue}{RGB}{30,80,160}
+\definecolor{dateblue}{RGB}{70,110,200}
+\definecolor{linkblue}{RGB}{20,20,230}
+
+\hypersetup{pdftitle={Bhavesh Gurnani - Resume}}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\raggedbottom
+
+\titleformat{\section}{\needspace{5\baselineskip}\large\bfseries\color{headblue}}{}{0pt}{\MakeUppercase}[\vspace{1pt}\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\setlist[itemize,1]{label=\textbullet,leftmargin=16pt,itemsep=0pt,topsep=0pt,parsep=0pt}
+\setlist[itemize,2]{label=--,leftmargin=14pt,itemsep=0pt,topsep=0pt,parsep=0pt}
+
+\newcommand{\lnk}[2]{\href{#1}{\color{linkblue}#2}}
+\newcommand{\dates}[1]{\hfill{\color{dateblue}\itshape #1}}
+% \entry{Role}{Org}{Dates}
+\newcommand{\entry}[3]{\textbf{#1} $|$ \textit{#2}\dates{#3}}
+% \proj{Title}{Advisor/context}{Dates}
+\newcommand{\proj}[3]{\textbf{#1 $|$ \textit{#2}}\dates{#3}}
+
+\begin{document}
+
+\begin{center}
+  {\fontsize{26}{30}\selectfont\bfseries\color{headblue}BHAVESH GURNANI}\\[4pt]
+  \small
+  \faEnvelope\ \lnk{mailto:cs5210594@iitd.ac.in}{cs5210594@iitd.ac.in}\quad\
+  \faPhone*\ (+91) 8949778677\quad\
+  \faLinkedin\ \lnk{https://linkedin.com/in/bhavesh-gurnani-410a68217}{bhavesh-gurnani-410a68217}\quad\
+  \faGithub\ \lnk{https://github.com/8have5h}{8have5h}\quad\
+  \faGlobe\ \lnk{https://8have5h.github.io/}{https://8have5h.github.io/}
+\end{center}
+
+\section{Education}
+\begin{itemize}
+  \item \textbf{Indian Institute of Technology Delhi (IIT Delhi)}\dates{May 2026}
+  \begin{itemize}
+    \item B.Tech and M.Tech in Computer Science \& Engineering (Dual Degree) $|$ CGPA: 8.52/10.0
+  \end{itemize}
+  \item \textbf{Lord Buddha Public School, Kota}\dates{Apr 2021 (CBSE XII), Apr 2019 (CBSE X)}
+  \begin{itemize}
+    \item Class XII (PCM): 84\% $|$ Class X: 94\%
+  \end{itemize}
+\end{itemize}
+
+\section{Scholastic Achievements}
+\begin{itemize}
+  \item \textbf{JEE Advanced 2021:} All India Rank \textbf{116} (out of approx.\ 200,000 candidates)
+  \item \textbf{JEE Mains 2021:} All India Rank \textbf{493} (out of $>$1,000,000 candidates); \textbf{100\% Percentile} in Mathematics
+  \item \textbf{KVPY Fellowship 2020 (IISc):} All India Rank \textbf{305} (SA Stream)
+  \item \textbf{NTSE Scholar 2019 (NCERT):} Ranked among Top \textbf{2000} students nationwide
+  \item \textbf{INMO Qualifier:} Ranked among Top \textbf{300} students nationwide
+\end{itemize}
+
+\section{Experience}
+\begin{itemize}
+  \item \entry{Quantitative Researcher}{Ebullient Securities $|$ Gurugram}{July 2026 -- Present}
+  \begin{itemize}
+    \item Researching alpha signals and systematic trading strategies for US options markets.
+  \end{itemize}
+  \item \entry{Research Intern}{Microsoft Research}{Feb 2026 -- April 2026}
+  \begin{itemize}
+    \item Built conversational agents for medical diagnosis using multi-turn dialogue modeling and clinical reasoning.
+  \end{itemize}
+  \item \entry{AI Security Intern}{National University of Singapore --- Prof.\ Prateek Saxena, KISP Lab}{Dec 2025 -- April 2026}
+  \begin{itemize}
+    \item Extended \textit{OverThink} (Kumar et al., 2025; arXiv:2502.02542) with a filtering-evasive slowdown attack on LLMs.
+    \item Showed it increases reasoning-token generation without changing outputs, revealing compute-amplification risks.
+  \end{itemize}
+  \item \entry{Post-Training Research Intern}{Neosigma $|$ Remote}{Dec 2025 -- Jan 2026}
+  \begin{itemize}
+    \item Improved 128k-context agentic LLM post-training by tool-call truncation during SFT, improving context retention.
+    \item Set up AWS multi-node training infrastructure for scalable SFT, DPO, and GRPO with \texttt{verl} at 128k context.
+  \end{itemize}
+  \item \entry{Quantitative Researcher Intern}{Ebullient Securities $|$ Gurugram}{May 2025 -- July 2025}
+  \begin{itemize}
+    \item Built and backtested alpha signals for short-term equity directionality from equities data.
+    \item Designed and live-tested a custom trading strategy in C++ using top alphas (40\% annualised, Calmar 12).
+    \item Automated alpha-generation pipeline using LLMs with custom evaluation loops for iterative refinement.
+  \end{itemize}
+  \item \entry{Software/Research Engineer Intern}{CompilerAI Labs Private Limited $|$ New Delhi}{May 2024 -- July 2024}\\
+  \hspace*{16pt}\textit{Project under the guidance of Prof.\ Sorav Bansal}
+  \begin{itemize}
+    \item Implemented MISRA C static analysis rules within Clang compiler across Preprocessor, AST, and LLVM stages.
+    \item Enhanced Equivalence Checker tool for formal verification of compiled executable code against C source code.
+  \end{itemize}
+\end{itemize}
+
+\section{Teaching Assistantship}
+\begin{itemize}
+  \item \entry{TA, COL772: Natural Language Processing}{IIT Delhi $|$ Prof.\ Mausam}{Jan 2026 -- May 2026}
+  \begin{itemize}
+    \item Designed assignments and quizzes; built autograder to evaluate student submissions; resolved Piazza queries.
+  \end{itemize}
+  \item \entry{TA, COL333: Artificial Intelligence}{IIT Delhi $|$ Prof.\ Mausam}{Jul 2025 -- Dec 2025}
+  \begin{itemize}
+    \item Created quizzes and assignments; evaluated student scripts.
+  \end{itemize}
+\end{itemize}
+
+\section{Publications}
+\begin{itemize}
+  \item \textbf{ProbMedTOD: A Probabilistic Task-Oriented Dialogue System for Patient History Taking}\\
+  {\footnotesize\textit{Vishal Vivek Saley, \textbf{Bhavesh Gurnani}, Dinesh Raghu, Mausam}}\dates{NeurIPS 2026}
+  \begin{itemize}
+    \item Introduced \textbf{ProbMedTOD}, integrating LLMs with Bayesian Networks for patient history-taking.
+    \item Designed patient simulator and dialogue-level metric; achieved 21-pt MRR gain over baselines.
+  \end{itemize}
+  \item \textbf{Hierarchical Masked Diffusion Language Models}\\
+  {\footnotesize\textit{Parul Gupta, Avni Aggarwal, \textbf{Bhavesh Gurnani}, Arnab Kumar Mondal, Dinesh Khandelwal, Dinesh Garg, Parag Singla}}\dates{In Review}
+  \begin{itemize}
+    \item Proposed \textbf{HMDLM}, a two-stage diffusion model that predicts token-level generation priorities before decoding.
+    \item Derived novel ELBO with per-level noise schedules for controllable non-autoregressive generation.
+    \item Achieved 0.91 PPL improvement on LM1B, 1.4\% gain on GSM8K, and 3\% on code generation.
+  \end{itemize}
+\end{itemize}
+
+\section{Selected Projects}
+\begin{itemize}
+  \item \proj{Hierarchical Masked Diffusion Language Models}{MTP under Prof.\ Parag Singla}{June 2025 -- May 2026}
+  \begin{itemize}
+    \item Implemented hierarchical masked-diffusion with staged generation: descriptions $\rightarrow$ comments $\rightarrow$ code tokens.
+    \item Achieved empirical improvements on LLADA for MBPP and HumanEval code-generation benchmarks.
+  \end{itemize}
+  \item \proj{Improving Dialogue Systems for Medical Diagnosis}{BTP under Prof.\ Mausam}{July 2024 -- May 2025}
+  \begin{itemize}
+    \item Modeled large-scale medical text data as Bayesian Networks to capture causal disease--symptom relationships
+    \item Designed novel inference techniques for Bayesian Networks, improving performance over standard RAG systems
+  \end{itemize}
+\end{itemize}
+
+\section{Course Projects}
+\begin{itemize}
+  \item \proj{Object-Centric Learning for Scene Decomposition}{DL Course Final Project}{Jan 2024 -- Apr 2024}
+  \begin{itemize}
+    \item Implemented Slot Attention on CLEVRTex and designed slot-conditioned diffusion model with custom U-Net
+    \item Benchmarked performance using ARI metric and achieved interpretable object-centric scene representations
+  \end{itemize}
+  \item \proj{Intelligent Bot for Alternating Markov Games}{AI Course Final Project}{Aug 2023 -- Dec 2023}
+  \begin{itemize}
+    \item Developed AI agents for strategic games using depth-limited Minimax with domain heuristics optimized via RL
+    \item Implemented DQN enhanced with MCTS inspired by Expert Iteration, achieving superior gameplay performance
+  \end{itemize}
+  \item \proj{Lexer, Parser, Interpreter for Language with Rationals}{Prof.\ S.\ Arun Kumar}{Jan 2023 -- Apr 2023}
+  \begin{itemize}
+    \item Built complete compiler with custom BigInt/Rational modules, lexer using ML-Lex, and parser with ML-Yacc
+    \item Implemented interpreter with static scoping supporting variables, conditionals, loops, and recursion
+  \end{itemize}
+  \item \proj{Custom MultiThreading Library}{Prof.\ Abhilash Jindal}{Feb 2023 -- Mar 2023}
+  \begin{itemize}
+    \item Designed a user-level multithreading library in C with round-robin scheduling and synchronization primitives
+    \item Benchmarked against POSIX pthread, demonstrating efficient scheduling with reduced overhead
+  \end{itemize}
+  \item \proj{Table Cell Classification for Question Answering}{Prof.\ Mausam}{Feb 2024 -- Mar 2024}
+  \begin{itemize}
+    \item Designed a model to identify answer cells in custom tables for complex natural language queries
+    \item Built a two-stage transformer architecture: column predictor followed by row predictor conditioned on query and predicted columns
+    \item Prompt-tuned Gemma, improving exact match accuracy from 43\% (two-model pipeline) to 67\%
+  \end{itemize}
+  \item \proj{Text-to-Math Program Synthesis}{Prof.\ Parag Singla}{Jan 2024 -- Mar 2024}
+  \begin{itemize}
+    \item Developed Seq2Seq models to generate executable math formulas from text problem descriptions, with an interpreter for answer computation
+    \item Implemented Bi-LSTM encoder-decoder with GloVe embeddings and Bahdanau attention; achieved 67\% exact match and 73\% execution accuracy using beam search
+    \item Fine-tuned BERT as encoder, improving to 78\% exact match and 81\% execution accuracy
+  \end{itemize}
+  \item \proj{Lay Summarization of Biomedical Research Articles}{Prof.\ Mausam}{Apr 2024 -- Jun 2024}
+  \begin{itemize}
+    \item Fine-tuned PLMs on HPC clusters to generate layperson summaries of biomedical research articles
+    \item Applied PEFT techniques (Adapters, LoRA) with mixed-precision training for efficient large-scale fine-tuning
+    \item Evaluated Flan-T5 and BioGPT on relevance, readability, and factual consistency metrics
+  \end{itemize}
+\end{itemize}
+
+\section{Extracurricular Activities}
+\begin{itemize}
+  \item \textbf{Tower Research Limestone Data Challenge:} Achieved \textbf{Top 50} selection \textbf{twice} across offline sessions
+  \item \textbf{Inter IIT Tech Meet 2024:} Led team on Adobe Research problem; built a detection and explainability pipeline for AI-generated images, identifying visual artifacts and providing reasoning for model predictions
+  \item \textbf{ML in Astronomy Workshop (2024):} Conducted a session on ML--Astronomy integration; built LSTM-Attention models on light curves for object classification \lnk{https://github.com/8have5h/ml_astro_pac}{[Code]}
+  \item \textbf{ARIES Research Team (2024):} Conducted NLP sessions and contributed to multiple industry research projects
+  \item \textbf{Technical Executive, Economics Club, CAIC (2022--23):} Developed a React.js website to manage club competitions and events
+  \item \textbf{Technical Engineer, Infinity Hyperloop, CAIC (2022--23):} Designed a PyQt5 interface for pod control; implemented sensor processing and STM communication over CAN protocols
+  \item \textbf{Academic Mentor (2023):} Mentored 150+ freshers for MTL100 (Calculus) via hybrid doubt sessions
+\end{itemize}
+
+\end{document}

@@ -66,7 +66,7 @@ function Header() {
             Bhavesh Gurnani
           </Link>
           <span className="hidden md:inline text-xs md:text-sm text-gray-500 dark:text-gray-500">
-            · CS @ IIT Delhi
+            · Quant Researcher @ Ebullient
           </span>
         </div>
 

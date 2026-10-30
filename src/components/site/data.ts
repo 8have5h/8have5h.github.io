@@ -35,9 +35,24 @@ export const CONTACTS: {
 
 export const NEWS: { date: string; content: string }[] = [
   {
+    date: "Dec'26",
+    content:
+      "I&apos;ll be at <strong>NeurIPS 2026</strong> in person from Dec 6&ndash;12 to present <em>ProbMedTOD</em>. Say hi if you&apos;re attending!",
+  },
+  {
+    date: "Sep'26",
+    content:
+      "Our paper <em>ProbMedTOD: A Probabilistic Task-Oriented Dialogue System for Patient History Taking</em> was accepted at <strong>NeurIPS 2026</strong>!",
+  },
+  {
+    date: "Jul'26",
+    content:
+      "Joined <strong>Ebullient Securities</strong> full-time as a Quantitative Researcher.",
+  },
+  {
     date: "Feb'26",
     content:
-      "Started as a Research Intern at <strong>Microsoft Research</strong>, building conversational agents for medical diagnosis via multi-turn dialogue modeling and clinical reasoning.",
+      "Started as a Research Intern at <strong>Microsoft Research</strong>, working on conversational agents for medical diagnosis via multi-turn dialogue modeling and clinical reasoning.",
   },
   {
     date: "Dec'25",

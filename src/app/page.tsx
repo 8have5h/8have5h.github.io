@@ -19,8 +19,11 @@ export default function Home() {
           </h2>
           <div className="space-y-3 md:space-y-4 text-sm md:text-base text-foreground/90 leading-relaxed md:leading-[1.8]">
             <p>
-              Hi! I&apos;m Bhavesh, a Dual Degree (B.Tech + M.Tech) student in{" "}
-              <strong>Computer Science &amp; Engineering</strong> at{" "}
+              Hi! I&apos;m Bhavesh, a <strong>Quantitative Researcher</strong>{" "}
+              at Ebullient Securities, where I&apos;ve been working full-time
+              on US options since July 2026. I graduated in May 2026 with a Dual Degree
+              (B.Tech + M.Tech) in{" "}
+              <strong>Computer Science &amp; Engineering</strong> from{" "}
               <a
                 href="https://www.iitd.ac.in/"
                 target="_blank"
@@ -29,12 +32,12 @@ export default function Home() {
               >
                 IIT Delhi
               </a>
-              , graduating in May 2026. I work broadly on natural language
-              processing and large language models — spanning diffusion language
-              models, dialogue systems, and the security of reasoning models.
+              . My research spans natural language processing and large
+              language models, including diffusion language models, dialogue
+              systems, and the security of reasoning models.
             </p>
             <p>
-              Most recently, I&apos;m a Research Intern at{" "}
+              Before that, I was a Research Intern at{" "}
               <a
                 href="https://www.microsoft.com/en-us/research/"
                 target="_blank"
@@ -43,8 +46,8 @@ export default function Home() {
               >
                 Microsoft Research
               </a>
-              , developing conversational agents for medical diagnosis. I&apos;m
-              also an AI Security Intern at the{" "}
+              , where I built conversational agents for medical diagnosis. I
+              was also an AI Security Intern at the{" "}
               <a
                 href="https://www.comp.nus.edu.sg/"
                 target="_blank"
@@ -62,7 +65,7 @@ export default function Home() {
               >
                 KISP Lab
               </a>
-              ) with Prof. Prateek Saxena, studying compute-amplification
+              ) with Prof. Prateek Saxena, where I studied compute-amplification
               attacks on LLMs.
             </p>
             <p>
@@ -75,7 +78,7 @@ export default function Home() {
               >
                 Prof. Parag Singla
               </a>
-              , develops{" "}
+              , developed{" "}
               <strong>Hierarchical Masked Diffusion Language Models</strong> for
               controllable, non-autoregressive generation. Earlier, I built
               probabilistic dialogue systems for medical diagnosis with{" "}
@@ -86,15 +89,17 @@ export default function Home() {
                 className="text-primary underline"
               >
                 Prof. Mausam
-              </a>
-              , and worked on post-training infrastructure for long-context
+              </a>{" "}
+              (<em>ProbMedTOD</em>, accepted at <strong>NeurIPS 2026</strong>),
+              and worked on post-training infrastructure for long-context
               agentic LLMs at Neosigma.
             </p>
             <p>
-              Beyond research, I&apos;ve worked as a Quantitative Researcher at
-              Ebullient Securities — building and live-testing alpha signals and
-              C++ trading strategies — and on compiler tooling and formal
-              verification at CompilerAI Labs under Prof. Sorav Bansal.
+              My path to Ebullient started with a 2025 Quantitative Researcher
+              internship there, building and live-testing alpha signals and C++
+              trading strategies, which converted into my full-time role. I also
+              worked on compiler tooling and formal verification at CompilerAI
+              Labs under Prof. Sorav Bansal.
             </p>
           </div>
         </section>

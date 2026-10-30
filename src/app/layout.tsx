@@ -19,7 +19,7 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "Bhavesh Gurnani",
   description:
-    "Bhavesh Gurnani — Dual Degree (B.Tech + M.Tech) Computer Science student at IIT Delhi. Research in NLP, LLMs, and diffusion language models.",
+    "Bhavesh Gurnani — Quantitative Researcher at Ebullient Securities and IIT Delhi CSE Dual Degree (B.Tech + M.Tech) graduate. Research in NLP, LLMs, and diffusion language models.",
 };
 
 export default function RootLayout({
